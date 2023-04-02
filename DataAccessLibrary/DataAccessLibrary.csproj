@@ -69,6 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums.cs" />
     <Compile Include="JSONFileDataAccess.cs" />
     <Compile Include="Models\ScheduledMaintenance.cs" />
     <Compile Include="Models\ScheduledMaintenanceTask.cs" />

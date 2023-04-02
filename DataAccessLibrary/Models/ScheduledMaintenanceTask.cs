@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static DataAccessLibrary.Enums;
 
 namespace DataAccessLibrary.Models
 {
     public class ScheduledMaintenanceTask
     {
-        public string Name { get; set; }
+        public string Description { get; set; }
         public string OwnershipGroup { get; set; }
-        public DateTime ExpectedStartDateTime { get; set; }
-        public DateTime ExpectedEndDateTime { get; set; }
+        public ScheduledMaintenanceTaskStatus Status { get; set; } = ScheduledMaintenanceTaskStatus.Scheduled;
+        public DateTime ScheduledStartDateTime { get; set; }
+        public DateTime ScheduledEndDateTime { get; set; }
         public DateTime ActualStartDateTime { get; set; }
         public DateTime ActualEndDateTime { get; set; }
     }

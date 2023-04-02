@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbxTasks = new System.Windows.Forms.ListBox();
             this.lblLabelCurrentDateTime = new System.Windows.Forms.Label();
             this.btnEditTasks = new System.Windows.Forms.Button();
             this.lblCurrentDateTime = new System.Windows.Forms.Label();
@@ -52,20 +51,12 @@
             this.btnDeleteScheduledMaintenance = new System.Windows.Forms.Button();
             this.btnViewPastScheduledMaintenances = new System.Windows.Forms.Button();
             this.btnNewScheduledMaintenance = new System.Windows.Forms.Button();
+            this.dgvTasks = new System.Windows.Forms.DataGridView();
             this.gbxAllTasks.SuspendLayout();
             this.gbxScheduledMaintenanceStatus.SuspendLayout();
             this.gbxScheduledMaintenanceCrud.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTasks)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lbxTasks
-            // 
-            this.lbxTasks.FormattingEnabled = true;
-            this.lbxTasks.ItemHeight = 20;
-            this.lbxTasks.Location = new System.Drawing.Point(7, 31);
-            this.lbxTasks.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.lbxTasks.Name = "lbxTasks";
-            this.lbxTasks.Size = new System.Drawing.Size(763, 324);
-            this.lbxTasks.TabIndex = 0;
             // 
             // lblLabelCurrentDateTime
             // 
@@ -180,7 +171,7 @@
             // 
             // gbxAllTasks
             // 
-            this.gbxAllTasks.Controls.Add(this.lbxTasks);
+            this.gbxAllTasks.Controls.Add(this.dgvTasks);
             this.gbxAllTasks.Controls.Add(this.btnEditTasks);
             this.gbxAllTasks.Location = new System.Drawing.Point(12, 12);
             this.gbxAllTasks.Name = "gbxAllTasks";
@@ -314,6 +305,23 @@
             this.btnNewScheduledMaintenance.UseVisualStyleBackColor = true;
             this.btnNewScheduledMaintenance.Click += new System.EventHandler(this.BtnNewScheduledMaintenance_Click);
             // 
+            // dgvTasks
+            // 
+            this.dgvTasks.AllowUserToAddRows = false;
+            this.dgvTasks.AllowUserToDeleteRows = false;
+            this.dgvTasks.AllowUserToResizeColumns = false;
+            this.dgvTasks.AllowUserToResizeRows = false;
+            this.dgvTasks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvTasks.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvTasks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTasks.Location = new System.Drawing.Point(7, 25);
+            this.dgvTasks.MultiSelect = false;
+            this.dgvTasks.Name = "dgvTasks";
+            this.dgvTasks.ReadOnly = true;
+            this.dgvTasks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTasks.Size = new System.Drawing.Size(764, 334);
+            this.dgvTasks.TabIndex = 6;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -334,13 +342,12 @@
             this.gbxScheduledMaintenanceStatus.ResumeLayout(false);
             this.gbxScheduledMaintenanceStatus.PerformLayout();
             this.gbxScheduledMaintenanceCrud.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTasks)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox lbxTasks;
         private System.Windows.Forms.Label lblLabelCurrentDateTime;
         private System.Windows.Forms.Button btnEditTasks;
         private System.Windows.Forms.Label lblCurrentDateTime;
@@ -364,6 +371,7 @@
         private System.Windows.Forms.Button btnViewPastScheduledMaintenances;
         private System.Windows.Forms.Button btnNewScheduledMaintenance;
         private System.Windows.Forms.Button btnDeleteScheduledMaintenance;
+        private System.Windows.Forms.DataGridView dgvTasks;
     }
 }
 

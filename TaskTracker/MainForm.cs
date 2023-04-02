@@ -37,6 +37,26 @@ namespace TaskTracker
             LoadScheduledMaintenancesFromFile();
             PopulateLabels();
             ConditionallyEnableDeleteButton();
+            RefreshDataGridView();
+        }
+
+        public void RefreshDataGridView()
+        {
+            dgvTasks.DataSource = null;
+            dgvTasks.DataSource = scheduledMaintenance.Tasks;
+            FormatDataGridView();
+        }
+
+        private void FormatDataGridView()
+        {
+            dgvTasks.Columns[2].Visible = false;
+            dgvTasks.Columns[5].Visible = false;
+            dgvTasks.Columns[6].Visible = false;
+            dgvTasks.Columns[3].DefaultCellStyle.Format = "h:mm tt";
+            dgvTasks.Columns[4].DefaultCellStyle.Format = "h:mm tt";
+            dgvTasks.Columns[1].HeaderText = "Ownership Group";
+            dgvTasks.Columns[3].HeaderText = "Start Time";
+            dgvTasks.Columns[4].HeaderText = "End Time";
         }
 
         private void PopulateLabels()

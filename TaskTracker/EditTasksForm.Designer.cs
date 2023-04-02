@@ -37,7 +37,7 @@
             this.lblExpectedEndTime = new System.Windows.Forms.Label();
             this.dtpExpectedStartTime = new System.Windows.Forms.DateTimePicker();
             this.lblExpectedStartTime = new System.Windows.Forms.Label();
-            this.lblTaskName = new System.Windows.Forms.Label();
+            this.lblDescription = new System.Windows.Forms.Label();
             this.btnAddTask = new System.Windows.Forms.Button();
             this.btnRemoveTask = new System.Windows.Forms.Button();
             this.dgvTasks = new System.Windows.Forms.DataGridView();
@@ -61,11 +61,11 @@
             this.gbxTask.Controls.Add(this.lblExpectedEndTime);
             this.gbxTask.Controls.Add(this.dtpExpectedStartTime);
             this.gbxTask.Controls.Add(this.lblExpectedStartTime);
-            this.gbxTask.Controls.Add(this.lblTaskName);
+            this.gbxTask.Controls.Add(this.lblDescription);
             this.gbxTask.Controls.Add(this.tbTaskName);
-            this.gbxTask.Location = new System.Drawing.Point(12, 342);
+            this.gbxTask.Location = new System.Drawing.Point(12, 352);
             this.gbxTask.Name = "gbxTask";
-            this.gbxTask.Size = new System.Drawing.Size(717, 269);
+            this.gbxTask.Size = new System.Drawing.Size(764, 269);
             this.gbxTask.TabIndex = 2;
             this.gbxTask.TabStop = false;
             this.gbxTask.Text = "Task";
@@ -132,18 +132,18 @@
             this.lblExpectedStartTime.TabIndex = 13;
             this.lblExpectedStartTime.Text = "Start Time:";
             // 
-            // lblTaskName
+            // lblDescription
             // 
-            this.lblTaskName.AutoSize = true;
-            this.lblTaskName.Location = new System.Drawing.Point(95, 28);
-            this.lblTaskName.Name = "lblTaskName";
-            this.lblTaskName.Size = new System.Drawing.Size(89, 20);
-            this.lblTaskName.TabIndex = 2;
-            this.lblTaskName.Text = "Task Name";
+            this.lblDescription.AutoSize = true;
+            this.lblDescription.Location = new System.Drawing.Point(95, 28);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(89, 20);
+            this.lblDescription.TabIndex = 2;
+            this.lblDescription.Text = "Description";
             // 
             // btnAddTask
             // 
-            this.btnAddTask.Location = new System.Drawing.Point(735, 131);
+            this.btnAddTask.Location = new System.Drawing.Point(782, 147);
             this.btnAddTask.Name = "btnAddTask";
             this.btnAddTask.Size = new System.Drawing.Size(97, 32);
             this.btnAddTask.TabIndex = 3;
@@ -153,7 +153,7 @@
             // 
             // btnRemoveTask
             // 
-            this.btnRemoveTask.Location = new System.Drawing.Point(735, 169);
+            this.btnRemoveTask.Location = new System.Drawing.Point(782, 185);
             this.btnRemoveTask.Name = "btnRemoveTask";
             this.btnRemoveTask.Size = new System.Drawing.Size(97, 32);
             this.btnRemoveTask.TabIndex = 4;
@@ -175,14 +175,14 @@
             this.dgvTasks.Name = "dgvTasks";
             this.dgvTasks.ReadOnly = true;
             this.dgvTasks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTasks.Size = new System.Drawing.Size(717, 324);
-            this.dgvTasks.TabIndex = 5;
+            this.dgvTasks.Size = new System.Drawing.Size(764, 334);
+            this.dgvTasks.TabIndex = 7;
             // 
             // EditTasksForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1232, 623);
+            this.ClientSize = new System.Drawing.Size(1232, 661);
             this.Controls.Add(this.dgvTasks);
             this.Controls.Add(this.btnRemoveTask);
             this.Controls.Add(this.btnAddTask);
@@ -202,16 +202,16 @@
         #endregion
         private System.Windows.Forms.TextBox tbTaskName;
         private System.Windows.Forms.GroupBox gbxTask;
-        private System.Windows.Forms.Label lblTaskName;
+        private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Button btnAddTask;
         private System.Windows.Forms.Button btnRemoveTask;
         private System.Windows.Forms.DateTimePicker dtpExpectedEndTime;
         private System.Windows.Forms.Label lblExpectedEndTime;
         private System.Windows.Forms.DateTimePicker dtpExpectedStartTime;
         private System.Windows.Forms.Label lblExpectedStartTime;
-        private System.Windows.Forms.DataGridView dgvTasks;
         private System.Windows.Forms.ComboBox cbOwnershipGroup;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnEditOwnershipGroups;
+        private System.Windows.Forms.DataGridView dgvTasks;
     }
 }

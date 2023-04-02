@@ -69,24 +69,29 @@ namespace TaskTracker
 
         private void FormatDataGridView()
         {
-            dgvTasks.Columns[3].Visible = false;
-            dgvTasks.Columns[4].Visible = false;
-            dgvTasks.Columns[1].DefaultCellStyle.Format = "h:mm tt";
-            dgvTasks.Columns[2].DefaultCellStyle.Format = "h:mm tt";
-            dgvTasks.Columns[1].HeaderText = "Start Time";
-            dgvTasks.Columns[2].HeaderText = "End Time";
+            dgvTasks.Columns[2].Visible = false;
+            dgvTasks.Columns[5].Visible = false;
+            dgvTasks.Columns[6].Visible = false;
+            dgvTasks.Columns[3].DefaultCellStyle.Format = "h:mm tt";
+            dgvTasks.Columns[4].DefaultCellStyle.Format = "h:mm tt";
+            dgvTasks.Columns[1].HeaderText = "Ownership Group";
+            dgvTasks.Columns[3].HeaderText = "Start Time";
+            dgvTasks.Columns[4].HeaderText = "End Time";
         }
 
         private void BtnAddTask_Click(object sender, EventArgs e)
         {
             ScheduledMaintenanceTask task = new ScheduledMaintenanceTask();
-            task.Name = tbTaskName.Text;
-            task.ExpectedStartDateTime = dtpExpectedStartTime.Value;
-            task.ExpectedEndDateTime = dtpExpectedEndTime.Value;
+            task.Description = tbTaskName.Text;
+            task.OwnershipGroup = cbOwnershipGroup.SelectedItem.ToString();
+            task.ScheduledStartDateTime = dtpExpectedStartTime.Value;
+            task.ScheduledEndDateTime = dtpExpectedEndTime.Value;
             _mainForm.scheduledMaintenance.Tasks.Add(task);
             _mainForm.SaveScheduledMaintenancesToFile();
             tbTaskName.Text = "";
+            cbOwnershipGroup.SelectedIndex = 0;
             RefreshDataGridView();
+            _mainForm.RefreshDataGridView();
         }
 
         private void BtnRemoveTask_Click(object sender, EventArgs e)
