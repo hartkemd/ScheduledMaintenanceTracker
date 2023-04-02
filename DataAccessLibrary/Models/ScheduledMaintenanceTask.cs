@@ -9,6 +9,7 @@ namespace DataAccessLibrary.Models
     public class ScheduledMaintenanceTask
     {
         public string Name { get; set; }
+        public string OwnershipGroup { get; set; }
         public DateTime ExpectedStartDateTime { get; set; }
         public DateTime ExpectedEndDateTime { get; set; }
         public DateTime ActualStartDateTime { get; set; }

@@ -23,5 +23,18 @@ namespace DataAccessLibrary
             List<ScheduledMaintenance> output = JsonSerializer.Deserialize<List<ScheduledMaintenance>>(jsonString);
             return output;
         }
+
+        public void WriteAllOwnershipGroups(List<string> ownershipGroups, string filePath)
+        {
+            string jsonString = JsonSerializer.Serialize(ownershipGroups);
+            File.WriteAllText(filePath, jsonString);
+        }
+
+        public List<string> ReadAllOwnershipGroups(string filePath)
+        {
+            string jsonString = File.ReadAllText(filePath);
+            List<string> output = JsonSerializer.Deserialize<List<string>>(jsonString);
+            return output;
+        }
     }
 }

@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataAccessLibrary;
 using DataAccessLibrary.Models;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -15,6 +17,10 @@ namespace TaskTracker
     public partial class EditTasksForm : Form
     {
         private MainForm _mainForm;
+        public List<string> ownershipGroups = new List<string>();
+
+        JSONFileDataAccess jsonFileDataAccess = new JSONFileDataAccess();
+        string dataFilePath = "ownership-group-data.json";
 
         public EditTasksForm(MainForm mainForm)
         {
@@ -24,12 +30,34 @@ namespace TaskTracker
 
             RefreshDataGridView();
 
+            LoadOwnershipGroupsFromFile();
+            cbOwnershipGroup.DataSource = ownershipGroups;
+
             dtpExpectedStartTime.ShowUpDown = true;
             dtpExpectedEndTime.ShowUpDown = true;
 
             dtpExpectedStartTime.Value = _mainForm.scheduledMaintenance.ScheduledStartDateTime.Date +
                 _mainForm.scheduledMaintenance.ScheduledStartDateTime.TimeOfDay;
             dtpExpectedEndTime.Value = dtpExpectedStartTime.Value.AddHours(1);
+        }
+
+        public void RefreshOwnershipGroupsComboBox()
+        {
+            cbOwnershipGroup.DataSource = null;
+            cbOwnershipGroup.DataSource = ownershipGroups;
+        }
+
+        public void SaveOwnershipGroupsToFile()
+        {
+            jsonFileDataAccess.WriteAllOwnershipGroups(ownershipGroups, dataFilePath);
+        }
+
+        private void LoadOwnershipGroupsFromFile()
+        {
+            if (File.Exists(dataFilePath))
+            {
+                ownershipGroups = jsonFileDataAccess.ReadAllOwnershipGroups(dataFilePath);
+            }
         }
 
         private void RefreshDataGridView()
@@ -63,9 +91,18 @@ namespace TaskTracker
 
         private void BtnRemoveTask_Click(object sender, EventArgs e)
         {
-            _mainForm.scheduledMaintenance.Tasks.RemoveAt(dgvTasks.SelectedRows[0].Index);
-            _mainForm.SaveScheduledMaintenancesToFile();
-            RefreshDataGridView();
+            if (dgvTasks.SelectedRows.Count > 0)
+            {
+                _mainForm.scheduledMaintenance.Tasks.RemoveAt(dgvTasks.SelectedRows[0].Index);
+                _mainForm.SaveScheduledMaintenancesToFile();
+                RefreshDataGridView();
+            }
+        }
+
+        private void BtnEditOwnershipGroups_Click(object sender, EventArgs e)
+        {
+            EditOwnershipGroupsForm editOwnershipGroups = new EditOwnershipGroupsForm(this);
+            editOwnershipGroups.ShowDialog();
         }
     }
 }

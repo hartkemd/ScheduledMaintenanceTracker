@@ -30,6 +30,9 @@
         {
             this.tbTaskName = new System.Windows.Forms.TextBox();
             this.gbxTask = new System.Windows.Forms.GroupBox();
+            this.btnEditOwnershipGroups = new System.Windows.Forms.Button();
+            this.cbOwnershipGroup = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.dtpExpectedEndTime = new System.Windows.Forms.DateTimePicker();
             this.lblExpectedEndTime = new System.Windows.Forms.Label();
             this.dtpExpectedStartTime = new System.Windows.Forms.DateTimePicker();
@@ -44,13 +47,16 @@
             // 
             // tbTaskName
             // 
-            this.tbTaskName.Location = new System.Drawing.Point(157, 25);
+            this.tbTaskName.Location = new System.Drawing.Point(190, 25);
             this.tbTaskName.Name = "tbTaskName";
-            this.tbTaskName.Size = new System.Drawing.Size(544, 26);
+            this.tbTaskName.Size = new System.Drawing.Size(498, 26);
             this.tbTaskName.TabIndex = 1;
             // 
             // gbxTask
             // 
+            this.gbxTask.Controls.Add(this.btnEditOwnershipGroups);
+            this.gbxTask.Controls.Add(this.cbOwnershipGroup);
+            this.gbxTask.Controls.Add(this.label1);
             this.gbxTask.Controls.Add(this.dtpExpectedEndTime);
             this.gbxTask.Controls.Add(this.lblExpectedEndTime);
             this.gbxTask.Controls.Add(this.dtpExpectedStartTime);
@@ -64,10 +70,38 @@
             this.gbxTask.TabStop = false;
             this.gbxTask.Text = "Task";
             // 
+            // btnEditOwnershipGroups
+            // 
+            this.btnEditOwnershipGroups.Location = new System.Drawing.Point(448, 65);
+            this.btnEditOwnershipGroups.Name = "btnEditOwnershipGroups";
+            this.btnEditOwnershipGroups.Size = new System.Drawing.Size(57, 28);
+            this.btnEditOwnershipGroups.TabIndex = 21;
+            this.btnEditOwnershipGroups.Text = "Edit";
+            this.btnEditOwnershipGroups.UseVisualStyleBackColor = true;
+            this.btnEditOwnershipGroups.Click += new System.EventHandler(this.BtnEditOwnershipGroups_Click);
+            // 
+            // cbOwnershipGroup
+            // 
+            this.cbOwnershipGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbOwnershipGroup.FormattingEnabled = true;
+            this.cbOwnershipGroup.Location = new System.Drawing.Point(190, 65);
+            this.cbOwnershipGroup.Name = "cbOwnershipGroup";
+            this.cbOwnershipGroup.Size = new System.Drawing.Size(252, 28);
+            this.cbOwnershipGroup.TabIndex = 20;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(51, 68);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(133, 20);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Ownership Group";
+            // 
             // dtpExpectedEndTime
             // 
             this.dtpExpectedEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpExpectedEndTime.Location = new System.Drawing.Point(157, 88);
+            this.dtpExpectedEndTime.Location = new System.Drawing.Point(190, 137);
             this.dtpExpectedEndTime.Name = "dtpExpectedEndTime";
             this.dtpExpectedEndTime.Size = new System.Drawing.Size(119, 26);
             this.dtpExpectedEndTime.TabIndex = 18;
@@ -75,7 +109,7 @@
             // lblExpectedEndTime
             // 
             this.lblExpectedEndTime.AutoSize = true;
-            this.lblExpectedEndTime.Location = new System.Drawing.Point(71, 93);
+            this.lblExpectedEndTime.Location = new System.Drawing.Point(104, 142);
             this.lblExpectedEndTime.Name = "lblExpectedEndTime";
             this.lblExpectedEndTime.Size = new System.Drawing.Size(80, 20);
             this.lblExpectedEndTime.TabIndex = 17;
@@ -84,7 +118,7 @@
             // dtpExpectedStartTime
             // 
             this.dtpExpectedStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpExpectedStartTime.Location = new System.Drawing.Point(157, 57);
+            this.dtpExpectedStartTime.Location = new System.Drawing.Point(190, 106);
             this.dtpExpectedStartTime.Name = "dtpExpectedStartTime";
             this.dtpExpectedStartTime.Size = new System.Drawing.Size(119, 26);
             this.dtpExpectedStartTime.TabIndex = 14;
@@ -92,7 +126,7 @@
             // lblExpectedStartTime
             // 
             this.lblExpectedStartTime.AutoSize = true;
-            this.lblExpectedStartTime.Location = new System.Drawing.Point(65, 62);
+            this.lblExpectedStartTime.Location = new System.Drawing.Point(98, 111);
             this.lblExpectedStartTime.Name = "lblExpectedStartTime";
             this.lblExpectedStartTime.Size = new System.Drawing.Size(86, 20);
             this.lblExpectedStartTime.TabIndex = 13;
@@ -101,7 +135,7 @@
             // lblTaskName
             // 
             this.lblTaskName.AutoSize = true;
-            this.lblTaskName.Location = new System.Drawing.Point(62, 28);
+            this.lblTaskName.Location = new System.Drawing.Point(95, 28);
             this.lblTaskName.Name = "lblTaskName";
             this.lblTaskName.Size = new System.Drawing.Size(89, 20);
             this.lblTaskName.TabIndex = 2;
@@ -176,5 +210,8 @@
         private System.Windows.Forms.DateTimePicker dtpExpectedStartTime;
         private System.Windows.Forms.Label lblExpectedStartTime;
         private System.Windows.Forms.DataGridView dgvTasks;
+        private System.Windows.Forms.ComboBox cbOwnershipGroup;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnEditOwnershipGroups;
     }
 }
