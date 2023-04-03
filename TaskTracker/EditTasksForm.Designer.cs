@@ -122,6 +122,7 @@
             this.dtpExpectedStartTime.Name = "dtpExpectedStartTime";
             this.dtpExpectedStartTime.Size = new System.Drawing.Size(119, 26);
             this.dtpExpectedStartTime.TabIndex = 14;
+            this.dtpExpectedStartTime.ValueChanged += new System.EventHandler(this.DtpExpectedStartTime_ValueChanged);
             // 
             // lblExpectedStartTime
             // 

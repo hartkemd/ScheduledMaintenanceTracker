@@ -38,7 +38,7 @@ namespace TaskTracker
 
             dtpExpectedStartTime.Value = _mainForm.scheduledMaintenance.ScheduledStartDateTime.Date +
                 _mainForm.scheduledMaintenance.ScheduledStartDateTime.TimeOfDay;
-            dtpExpectedEndTime.Value = dtpExpectedStartTime.Value.AddHours(1);
+            dtpExpectedEndTime.Value = dtpExpectedStartTime.Value;
         }
 
         public void RefreshOwnershipGroupsComboBox()
@@ -108,6 +108,11 @@ namespace TaskTracker
         {
             EditOwnershipGroupsForm editOwnershipGroups = new EditOwnershipGroupsForm(this);
             editOwnershipGroups.ShowDialog();
+        }
+
+        private void DtpExpectedStartTime_ValueChanged(object sender, EventArgs e)
+        {
+            dtpExpectedEndTime.Value = dtpExpectedStartTime.Value;
         }
     }
 }
