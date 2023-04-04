@@ -64,7 +64,7 @@
             this.dtpExpectedStartTime.Location = new System.Drawing.Point(542, 67);
             this.dtpExpectedStartTime.Name = "dtpExpectedStartTime";
             this.dtpExpectedStartTime.Size = new System.Drawing.Size(119, 26);
-            this.dtpExpectedStartTime.TabIndex = 3;
+            this.dtpExpectedStartTime.TabIndex = 2;
             // 
             // lblExpectedStartTime
             // 
@@ -81,7 +81,7 @@
             this.dtpExpectedEndTime.Location = new System.Drawing.Point(542, 117);
             this.dtpExpectedEndTime.Name = "dtpExpectedEndTime";
             this.dtpExpectedEndTime.Size = new System.Drawing.Size(119, 26);
-            this.dtpExpectedEndTime.TabIndex = 8;
+            this.dtpExpectedEndTime.TabIndex = 4;
             // 
             // lblExpectedEndTime
             // 
@@ -98,7 +98,7 @@
             this.dtpExpectedEndDate.Location = new System.Drawing.Point(157, 118);
             this.dtpExpectedEndDate.Name = "dtpExpectedEndDate";
             this.dtpExpectedEndDate.Size = new System.Drawing.Size(219, 26);
-            this.dtpExpectedEndDate.TabIndex = 6;
+            this.dtpExpectedEndDate.TabIndex = 3;
             // 
             // lblExpectedEndDate
             // 

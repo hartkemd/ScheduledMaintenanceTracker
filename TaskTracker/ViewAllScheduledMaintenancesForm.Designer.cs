@@ -46,7 +46,7 @@
             this.btnDeleteScheduledMaintenance.Location = new System.Drawing.Point(152, 12);
             this.btnDeleteScheduledMaintenance.Name = "btnDeleteScheduledMaintenance";
             this.btnDeleteScheduledMaintenance.Size = new System.Drawing.Size(203, 56);
-            this.btnDeleteScheduledMaintenance.TabIndex = 20;
+            this.btnDeleteScheduledMaintenance.TabIndex = 2;
             this.btnDeleteScheduledMaintenance.Text = "Delete Scheduled Maintenance";
             this.btnDeleteScheduledMaintenance.UseVisualStyleBackColor = true;
             this.btnDeleteScheduledMaintenance.Click += new System.EventHandler(this.BtnDeleteScheduledMaintenance_Click);
