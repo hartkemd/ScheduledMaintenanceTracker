@@ -51,17 +51,13 @@ namespace TaskTracker
         {
             if (scheduledMaintenance != null)
             {
-                btnEditTasks.Enabled = true;
-                btnStartTask.Enabled = true;
-                btnCompleteTask.Enabled = true;
-                btnMarkIssue.Enabled = true;
-            }
-            else
-            {
-                btnEditTasks.Enabled = false;
-                btnStartTask.Enabled = false;
-                btnCompleteTask.Enabled = false;
-                btnMarkIssue.Enabled = false;
+                if (scheduledMaintenance.ActualStartDateTime != null)
+                {
+                    btnEditTasks.Enabled = true;
+                    btnStartTask.Enabled = true;
+                    btnCompleteTask.Enabled = true;
+                    btnMarkIssue.Enabled = true;
+                }
             }
         }
 
@@ -101,21 +97,21 @@ namespace TaskTracker
 
         private void PopulateScheduledMaintenanceStatusLabels()
         {
-            if (scheduledMaintenance.ScheduledStartDateTime != DateTime.MinValue)
+            if (scheduledMaintenance.ScheduledStartDateTime != null)
             {
-                lblScheduledStartDateTime.Text = scheduledMaintenance.ScheduledStartDateTime.ToString(dateTimeStringFormat);
+                lblScheduledStartDateTime.Text = scheduledMaintenance.ScheduledStartDateTime?.ToString(dateTimeStringFormat);
             }
-            if (scheduledMaintenance.ScheduledEndDateTime != DateTime.MinValue)
+            if (scheduledMaintenance.ScheduledEndDateTime != null)
             {
-                lblScheduledEndDateTime.Text = scheduledMaintenance.ScheduledEndDateTime.ToString(dateTimeStringFormat);
+                lblScheduledEndDateTime.Text = scheduledMaintenance.ScheduledEndDateTime?.ToString(dateTimeStringFormat);
             }
-            if (scheduledMaintenance.ActualStartDateTime != DateTime.MinValue)
+            if (scheduledMaintenance.ActualStartDateTime != null)
             {
-                lblActualStartDateTime.Text = scheduledMaintenance.ActualStartDateTime.ToString(dateTimeStringFormat);
+                lblActualStartDateTime.Text = scheduledMaintenance.ActualStartDateTime?.ToString(dateTimeStringFormat);
             }
-            if (scheduledMaintenance.ActualEndDateTime != DateTime.MinValue)
+            if (scheduledMaintenance.ActualEndDateTime != null)
             {
-                lblActualEndDateTime.Text = scheduledMaintenance.ActualEndDateTime.ToString(dateTimeStringFormat);
+                lblActualEndDateTime.Text = scheduledMaintenance.ActualEndDateTime?.ToString(dateTimeStringFormat);
             }
         }
 
@@ -141,7 +137,7 @@ namespace TaskTracker
 
         private void SetElapsedTimeLabel()
         {
-            elapsedTime = DateTime.Now - scheduledMaintenance.ActualStartDateTime;
+            elapsedTime = (TimeSpan)(DateTime.Now - scheduledMaintenance.ActualStartDateTime);
             lblElapsedTime.Text = elapsedTime.ToString(@"hh\:mm\:ss");
         }
 
@@ -194,7 +190,7 @@ namespace TaskTracker
             if (btnStartEndScheduledMaintenance.Text == "Start Scheduled Maintenance")
             {
                 scheduledMaintenance.ActualStartDateTime = DateTime.Now;
-                lblActualStartDateTime.Text = scheduledMaintenance.ActualStartDateTime.ToString(dateTimeStringFormat);
+                lblActualStartDateTime.Text = scheduledMaintenance.ActualStartDateTime?.ToString(dateTimeStringFormat);
                 InitializeElapsedTimeTimer();
                 SaveScheduledMaintenancesToFile();
                 btnStartEndScheduledMaintenance.Text = "End Scheduled Maintenance";
@@ -202,7 +198,7 @@ namespace TaskTracker
             else if (btnStartEndScheduledMaintenance.Text == "End Scheduled Maintenance")
             {
                 scheduledMaintenance.ActualEndDateTime = DateTime.Now;
-                lblActualEndDateTime.Text = scheduledMaintenance.ActualEndDateTime.ToString(dateTimeStringFormat);
+                lblActualEndDateTime.Text = scheduledMaintenance.ActualEndDateTime?.ToString(dateTimeStringFormat);
                 elapsedTimeTimer.Stop();
                 SaveScheduledMaintenancesToFile();
                 btnStartEndScheduledMaintenance.Enabled = false;

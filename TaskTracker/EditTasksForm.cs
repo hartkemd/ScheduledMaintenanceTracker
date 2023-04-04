@@ -36,8 +36,8 @@ namespace TaskTracker
             dtpScheduledStartTime.ShowUpDown = true;
             dtpScheduledEndTime.ShowUpDown = true;
 
-            dtpScheduledStartTime.Value = _mainForm.scheduledMaintenance.ScheduledStartDateTime.Date +
-                _mainForm.scheduledMaintenance.ScheduledStartDateTime.TimeOfDay;
+            dtpScheduledStartTime.Value = (DateTime)(_mainForm.scheduledMaintenance.ScheduledStartDateTime?.Date +
+                _mainForm.scheduledMaintenance.ScheduledStartDateTime?.TimeOfDay);
             dtpScheduledEndTime.Value = dtpScheduledStartTime.Value;
         }
 

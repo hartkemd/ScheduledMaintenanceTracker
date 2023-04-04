@@ -187,6 +187,7 @@
             // 
             // btnMarkIssue
             // 
+            this.btnMarkIssue.Enabled = false;
             this.btnMarkIssue.Location = new System.Drawing.Point(394, 367);
             this.btnMarkIssue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnMarkIssue.Name = "btnMarkIssue";
@@ -198,6 +199,7 @@
             // 
             // btnCompleteTask
             // 
+            this.btnCompleteTask.Enabled = false;
             this.btnCompleteTask.Location = new System.Drawing.Point(247, 367);
             this.btnCompleteTask.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCompleteTask.Name = "btnCompleteTask";
@@ -209,6 +211,7 @@
             // 
             // btnStartTask
             // 
+            this.btnStartTask.Enabled = false;
             this.btnStartTask.Location = new System.Drawing.Point(127, 367);
             this.btnStartTask.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnStartTask.Name = "btnStartTask";

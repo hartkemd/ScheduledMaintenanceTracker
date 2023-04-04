@@ -42,9 +42,9 @@ namespace TaskTracker
             _mainForm.scheduledMaintenance.ScheduledEndDateTime = dtpExpectedEndDate.Value.Date +
                 dtpExpectedEndTime.Value.TimeOfDay;
             _mainForm.lblScheduledStartDateTime.Text =
-                _mainForm.scheduledMaintenance.ScheduledStartDateTime.ToString(dateTimeStringFormat);
+                _mainForm.scheduledMaintenance.ScheduledStartDateTime?.ToString(dateTimeStringFormat);
             _mainForm.lblScheduledEndDateTime.Text =
-                _mainForm.scheduledMaintenance.ScheduledEndDateTime.ToString(dateTimeStringFormat);
+                _mainForm.scheduledMaintenance.ScheduledEndDateTime?.ToString(dateTimeStringFormat);
 
             _mainForm.SaveScheduledMaintenancesToFile();
         }
