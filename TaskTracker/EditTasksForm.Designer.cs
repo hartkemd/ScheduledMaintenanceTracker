@@ -75,7 +75,7 @@
             this.btnEditOwnershipGroups.Location = new System.Drawing.Point(448, 65);
             this.btnEditOwnershipGroups.Name = "btnEditOwnershipGroups";
             this.btnEditOwnershipGroups.Size = new System.Drawing.Size(57, 28);
-            this.btnEditOwnershipGroups.TabIndex = 21;
+            this.btnEditOwnershipGroups.TabIndex = 3;
             this.btnEditOwnershipGroups.Text = "Edit";
             this.btnEditOwnershipGroups.UseVisualStyleBackColor = true;
             this.btnEditOwnershipGroups.Click += new System.EventHandler(this.BtnEditOwnershipGroups_Click);
@@ -87,7 +87,7 @@
             this.cbOwnershipGroup.Location = new System.Drawing.Point(190, 65);
             this.cbOwnershipGroup.Name = "cbOwnershipGroup";
             this.cbOwnershipGroup.Size = new System.Drawing.Size(252, 28);
-            this.cbOwnershipGroup.TabIndex = 20;
+            this.cbOwnershipGroup.TabIndex = 2;
             // 
             // label1
             // 
@@ -104,7 +104,7 @@
             this.dtpExpectedEndTime.Location = new System.Drawing.Point(190, 137);
             this.dtpExpectedEndTime.Name = "dtpExpectedEndTime";
             this.dtpExpectedEndTime.Size = new System.Drawing.Size(119, 26);
-            this.dtpExpectedEndTime.TabIndex = 18;
+            this.dtpExpectedEndTime.TabIndex = 5;
             // 
             // lblExpectedEndTime
             // 
@@ -121,7 +121,7 @@
             this.dtpExpectedStartTime.Location = new System.Drawing.Point(190, 106);
             this.dtpExpectedStartTime.Name = "dtpExpectedStartTime";
             this.dtpExpectedStartTime.Size = new System.Drawing.Size(119, 26);
-            this.dtpExpectedStartTime.TabIndex = 14;
+            this.dtpExpectedStartTime.TabIndex = 4;
             this.dtpExpectedStartTime.ValueChanged += new System.EventHandler(this.DtpExpectedStartTime_ValueChanged);
             // 
             // lblExpectedStartTime
@@ -147,7 +147,7 @@
             this.btnAddTask.Location = new System.Drawing.Point(782, 147);
             this.btnAddTask.Name = "btnAddTask";
             this.btnAddTask.Size = new System.Drawing.Size(97, 32);
-            this.btnAddTask.TabIndex = 3;
+            this.btnAddTask.TabIndex = 6;
             this.btnAddTask.Text = "Add";
             this.btnAddTask.UseVisualStyleBackColor = true;
             this.btnAddTask.Click += new System.EventHandler(this.BtnAddTask_Click);
@@ -157,7 +157,7 @@
             this.btnRemoveTask.Location = new System.Drawing.Point(782, 185);
             this.btnRemoveTask.Name = "btnRemoveTask";
             this.btnRemoveTask.Size = new System.Drawing.Size(97, 32);
-            this.btnRemoveTask.TabIndex = 4;
+            this.btnRemoveTask.TabIndex = 7;
             this.btnRemoveTask.Text = "Remove";
             this.btnRemoveTask.UseVisualStyleBackColor = true;
             this.btnRemoveTask.Click += new System.EventHandler(this.BtnRemoveTask_Click);
@@ -177,7 +177,8 @@
             this.dgvTasks.ReadOnly = true;
             this.dgvTasks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTasks.Size = new System.Drawing.Size(764, 334);
-            this.dgvTasks.TabIndex = 7;
+            this.dgvTasks.StandardTab = true;
+            this.dgvTasks.TabIndex = 8;
             // 
             // EditTasksForm
             // 
