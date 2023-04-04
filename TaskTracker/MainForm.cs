@@ -38,24 +38,30 @@ namespace TaskTracker
 
             if (scheduledMaintenance != null)
             {
-                PopulateLabels();
+                PopulateScheduledMaintenanceStatusLabels();
                 RefreshDataGridView();
             }
 
-            ConditionallyEnableEditTasksButton();
+            ConditionallyEnableTaskButtons();
             ConditionallyEnableStartEndScheduledMaintenanceButton();
             ConditionallyEnableDeleteButton();
         }
 
-        private void ConditionallyEnableEditTasksButton()
+        private void ConditionallyEnableTaskButtons()
         {
             if (scheduledMaintenance != null)
             {
                 btnEditTasks.Enabled = true;
+                btnStartTask.Enabled = true;
+                btnCompleteTask.Enabled = true;
+                btnMarkIssue.Enabled = true;
             }
             else
             {
                 btnEditTasks.Enabled = false;
+                btnStartTask.Enabled = false;
+                btnCompleteTask.Enabled = false;
+                btnMarkIssue.Enabled = false;
             }
         }
 
@@ -97,6 +103,8 @@ namespace TaskTracker
         {
             dgvTasks.Columns[2].DefaultCellStyle.Format = "h:mm tt";
             dgvTasks.Columns[3].DefaultCellStyle.Format = "h:mm tt";
+            dgvTasks.Columns[4].DefaultCellStyle.Format = "h:mm tt";
+            dgvTasks.Columns[5].DefaultCellStyle.Format = "h:mm tt";
             dgvTasks.Columns[1].HeaderText = "Ownership Group";
             dgvTasks.Columns[2].HeaderText = "Scheduled Start Time";
             dgvTasks.Columns[3].HeaderText = "Scheduled End Time";
@@ -104,7 +112,7 @@ namespace TaskTracker
             dgvTasks.Columns[5].HeaderText = "Actual End Time";
         }
 
-        private void PopulateLabels()
+        private void PopulateScheduledMaintenanceStatusLabels()
         {
             if (scheduledMaintenance.ScheduledStartDateTime != DateTime.MinValue)
             {
@@ -233,7 +241,7 @@ namespace TaskTracker
             ClearStatus();
 
             ConditionallyEnableDeleteButton();
-            ConditionallyEnableEditTasksButton();
+            ConditionallyEnableTaskButtons();
             ConditionallyEnableStartEndScheduledMaintenanceButton();
 
             EditScheduledMaintenanceForm editScheduledMaintenanceForm = new EditScheduledMaintenanceForm(this);
@@ -254,10 +262,46 @@ namespace TaskTracker
                 ClearStatus();
 
                 ConditionallyEnableDeleteButton();
-                ConditionallyEnableEditTasksButton();
+                ConditionallyEnableTaskButtons();
                 ConditionallyEnableStartEndScheduledMaintenanceButton();
 
                 dgvTasks.DataSource = null;
+            }
+        }
+
+        private void BtnStartTask_Click(object sender, EventArgs e)
+        {
+            if (dgvTasks.SelectedRows.Count == 1)
+            {
+                ScheduledMaintenanceTask task = (ScheduledMaintenanceTask)dgvTasks.CurrentRow.DataBoundItem;
+                task.ActualStartDateTime = DateTime.Now;
+                task.Status = Enums.ScheduledMaintenanceTaskStatus.InProgress;
+                SaveScheduledMaintenancesToFile();
+                RefreshDataGridView();
+            }
+        }
+
+        private void BtnCompleteTask_Click(object sender, EventArgs e)
+        {
+            if (dgvTasks.SelectedRows.Count == 1)
+            {
+                ScheduledMaintenanceTask task = (ScheduledMaintenanceTask)dgvTasks.CurrentRow.DataBoundItem;
+                task.ActualEndDateTime = DateTime.Now;
+                task.Status = Enums.ScheduledMaintenanceTaskStatus.Complete;
+                SaveScheduledMaintenancesToFile();
+                RefreshDataGridView();
+            }
+        }
+
+        private void BtnMarkIssue_Click(object sender, EventArgs e)
+        {
+            if (dgvTasks.SelectedRows.Count == 1)
+            {
+                ScheduledMaintenanceTask task = (ScheduledMaintenanceTask)dgvTasks.CurrentRow.DataBoundItem;
+                task.ActualEndDateTime = DateTime.Now;
+                task.Status = Enums.ScheduledMaintenanceTaskStatus.Issue;
+                SaveScheduledMaintenancesToFile();
+                RefreshDataGridView();
             }
         }
     }

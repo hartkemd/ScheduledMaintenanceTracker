@@ -125,8 +125,8 @@ namespace TaskTracker
                 ScheduledMaintenanceTask task = (ScheduledMaintenanceTask)dgvTasks.CurrentRow.DataBoundItem;
                 tbDescription.Text = task.Description;
                 cbOwnershipGroup.SelectedItem = task.OwnershipGroup;
-                dtpScheduledStartTime.Value = task.ScheduledStartDateTime;
-                dtpScheduledEndTime.Value = task.ScheduledEndDateTime;
+                dtpScheduledStartTime.Value = (DateTime)task.ScheduledStartDateTime;
+                dtpScheduledEndTime.Value = (DateTime)task.ScheduledEndDateTime;
 
                 btnSave.Visible = true;
             }

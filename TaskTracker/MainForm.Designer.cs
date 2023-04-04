@@ -40,6 +40,9 @@
             this.lblActualEndDateTime = new System.Windows.Forms.Label();
             this.lblLabelActualEndDateTime = new System.Windows.Forms.Label();
             this.gbxAllTasks = new System.Windows.Forms.GroupBox();
+            this.btnMarkIssue = new System.Windows.Forms.Button();
+            this.btnCompleteTask = new System.Windows.Forms.Button();
+            this.btnStartTask = new System.Windows.Forms.Button();
             this.dgvTasks = new System.Windows.Forms.DataGridView();
             this.gbxCurrentTasks = new System.Windows.Forms.GroupBox();
             this.gbxScheduledMaintenanceStatus = new System.Windows.Forms.GroupBox();
@@ -170,6 +173,9 @@
             // 
             // gbxAllTasks
             // 
+            this.gbxAllTasks.Controls.Add(this.btnMarkIssue);
+            this.gbxAllTasks.Controls.Add(this.btnCompleteTask);
+            this.gbxAllTasks.Controls.Add(this.btnStartTask);
             this.gbxAllTasks.Controls.Add(this.dgvTasks);
             this.gbxAllTasks.Controls.Add(this.btnEditTasks);
             this.gbxAllTasks.Location = new System.Drawing.Point(12, 12);
@@ -178,6 +184,39 @@
             this.gbxAllTasks.TabIndex = 12;
             this.gbxAllTasks.TabStop = false;
             this.gbxAllTasks.Text = "All Tasks";
+            // 
+            // btnMarkIssue
+            // 
+            this.btnMarkIssue.Location = new System.Drawing.Point(394, 367);
+            this.btnMarkIssue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnMarkIssue.Name = "btnMarkIssue";
+            this.btnMarkIssue.Size = new System.Drawing.Size(119, 35);
+            this.btnMarkIssue.TabIndex = 5;
+            this.btnMarkIssue.Text = "Mark Issue";
+            this.btnMarkIssue.UseVisualStyleBackColor = true;
+            this.btnMarkIssue.Click += new System.EventHandler(this.BtnMarkIssue_Click);
+            // 
+            // btnCompleteTask
+            // 
+            this.btnCompleteTask.Location = new System.Drawing.Point(247, 367);
+            this.btnCompleteTask.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCompleteTask.Name = "btnCompleteTask";
+            this.btnCompleteTask.Size = new System.Drawing.Size(139, 35);
+            this.btnCompleteTask.TabIndex = 4;
+            this.btnCompleteTask.Text = "Complete Task";
+            this.btnCompleteTask.UseVisualStyleBackColor = true;
+            this.btnCompleteTask.Click += new System.EventHandler(this.BtnCompleteTask_Click);
+            // 
+            // btnStartTask
+            // 
+            this.btnStartTask.Location = new System.Drawing.Point(127, 367);
+            this.btnStartTask.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnStartTask.Name = "btnStartTask";
+            this.btnStartTask.Size = new System.Drawing.Size(112, 35);
+            this.btnStartTask.TabIndex = 3;
+            this.btnStartTask.Text = "Start Task";
+            this.btnStartTask.UseVisualStyleBackColor = true;
+            this.btnStartTask.Click += new System.EventHandler(this.BtnStartTask_Click);
             // 
             // dgvTasks
             // 
@@ -359,6 +398,9 @@
         private System.Windows.Forms.Button btnNewScheduledMaintenance;
         private System.Windows.Forms.Button btnDeleteScheduledMaintenance;
         private System.Windows.Forms.DataGridView dgvTasks;
+        private System.Windows.Forms.Button btnStartTask;
+        private System.Windows.Forms.Button btnCompleteTask;
+        private System.Windows.Forms.Button btnMarkIssue;
     }
 }
 
