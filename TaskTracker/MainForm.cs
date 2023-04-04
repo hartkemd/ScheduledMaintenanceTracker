@@ -15,7 +15,7 @@ namespace TaskTracker
 {
     public partial class MainForm : Form
     {
-        public ScheduledMaintenance scheduledMaintenance = new ScheduledMaintenance();
+        public ScheduledMaintenance scheduledMaintenance = null;
         public List<ScheduledMaintenance> scheduledMaintenances = new List<ScheduledMaintenance>();
 
         JSONFileDataAccess jsonFileDataAccess = new JSONFileDataAccess();
@@ -35,9 +35,55 @@ namespace TaskTracker
             InitializeCurrentDateTimeTimer();
             
             LoadScheduledMaintenancesFromFile();
-            PopulateLabels();
+
+            if (scheduledMaintenance != null)
+            {
+                PopulateLabels();
+                RefreshDataGridView();
+            }
+
+            ConditionallyEnableEditTasksButton();
+            ConditionallyEnableStartEndScheduledMaintenanceButton();
             ConditionallyEnableDeleteButton();
-            RefreshDataGridView();
+        }
+
+        private void ConditionallyEnableEditTasksButton()
+        {
+            if (scheduledMaintenance != null)
+            {
+                btnEditTasks.Enabled = true;
+            }
+            else
+            {
+                btnEditTasks.Enabled = false;
+            }
+        }
+
+        private void ConditionallyEnableStartEndScheduledMaintenanceButton()
+        {
+            if (scheduledMaintenance != null)
+            {
+                if (scheduledMaintenance.ActualEndDateTime == DateTime.MinValue)
+                {
+                    btnStartEndScheduledMaintenance.Enabled = true;
+                }
+                else
+                {
+                    btnStartEndScheduledMaintenance.Enabled = false;
+                }
+            }
+            else
+            {
+                btnStartEndScheduledMaintenance.Enabled = false;
+            }
+        }
+
+        private void ConditionallyEnableDeleteButton()
+        {
+            if (scheduledMaintenance != null)
+            {
+                btnDeleteScheduledMaintenance.Enabled = true;
+            }
         }
 
         public void RefreshDataGridView()
@@ -142,38 +188,30 @@ namespace TaskTracker
             lblActualEndDateTime.Text = labelText;
         }
 
-        private void ConditionallyEnableDeleteButton()
-        {
-            if (scheduledMaintenance != null)
-            {
-                btnDeleteScheduledMaintenance.Enabled = true;
-            }
-        }
-
         private void BtnEditTasks_Click(object sender, EventArgs e)
         {
             EditTasksForm editTasksForm = new EditTasksForm(this);
             editTasksForm.ShowDialog();
         }
 
-        private void BtnStartScheduledMaintenance_Click(object sender, EventArgs e)
+        private void BtnStartEndScheduledMaintenance_Click(object sender, EventArgs e)
         {
-            scheduledMaintenance.ActualStartDateTime = DateTime.Now;
-            lblActualStartDateTime.Text = scheduledMaintenance.ActualStartDateTime.ToString(dateTimeStringFormat);
-            InitializeElapsedTimeTimer();
-            btnStartScheduledMaintenance.Enabled = false;
-            btnEndScheduledMaintenance.Enabled = true;
-            SaveScheduledMaintenancesToFile();
-        }
-
-        private void BtnEndScheduledMaintenance_Click(object sender, EventArgs e)
-        {
-            scheduledMaintenance.ActualEndDateTime = DateTime.Now;
-            lblActualEndDateTime.Text = scheduledMaintenance.ActualEndDateTime.ToString(dateTimeStringFormat);
-            elapsedTimeTimer.Stop();
-            btnStartScheduledMaintenance.Enabled = true;
-            btnEndScheduledMaintenance.Enabled = false;
-            SaveScheduledMaintenancesToFile();
+            if (btnStartEndScheduledMaintenance.Text == "Start Scheduled Maintenance")
+            {
+                scheduledMaintenance.ActualStartDateTime = DateTime.Now;
+                lblActualStartDateTime.Text = scheduledMaintenance.ActualStartDateTime.ToString(dateTimeStringFormat);
+                InitializeElapsedTimeTimer();
+                SaveScheduledMaintenancesToFile();
+                btnStartEndScheduledMaintenance.Text = "End Scheduled Maintenance";
+            }
+            else if (btnStartEndScheduledMaintenance.Text == "End Scheduled Maintenance")
+            {
+                scheduledMaintenance.ActualEndDateTime = DateTime.Now;
+                lblActualEndDateTime.Text = scheduledMaintenance.ActualEndDateTime.ToString(dateTimeStringFormat);
+                elapsedTimeTimer.Stop();
+                SaveScheduledMaintenancesToFile();
+                btnStartEndScheduledMaintenance.Enabled = false;
+            }
         }
 
         private void BtnEditScheduledMaintenance_Click(object sender, EventArgs e)
@@ -193,7 +231,10 @@ namespace TaskTracker
             scheduledMaintenance = new ScheduledMaintenance();
             scheduledMaintenances.Add(scheduledMaintenance);
             ClearStatus();
+
             ConditionallyEnableDeleteButton();
+            ConditionallyEnableEditTasksButton();
+            ConditionallyEnableStartEndScheduledMaintenanceButton();
 
             EditScheduledMaintenanceForm editScheduledMaintenanceForm = new EditScheduledMaintenanceForm(this);
             editScheduledMaintenanceForm.ShowDialog();
@@ -211,7 +252,12 @@ namespace TaskTracker
                 scheduledMaintenance = null;
                 SaveScheduledMaintenancesToFile();
                 ClearStatus();
-                btnDeleteScheduledMaintenance.Enabled = false;
+
+                ConditionallyEnableDeleteButton();
+                ConditionallyEnableEditTasksButton();
+                ConditionallyEnableStartEndScheduledMaintenanceButton();
+
+                dgvTasks.DataSource = null;
             }
         }
     }

@@ -100,6 +100,7 @@ namespace TaskTracker
                 _mainForm.scheduledMaintenance.Tasks.RemoveAt(dgvTasks.SelectedRows[0].Index);
                 _mainForm.SaveScheduledMaintenancesToFile();
                 RefreshDataGridView();
+                _mainForm.RefreshDataGridView();
             }
         }
 

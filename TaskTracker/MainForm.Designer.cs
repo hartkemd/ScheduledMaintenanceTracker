@@ -45,8 +45,7 @@
             this.gbxScheduledMaintenanceStatus = new System.Windows.Forms.GroupBox();
             this.lblLabelElapsedTime = new System.Windows.Forms.Label();
             this.lblElapsedTime = new System.Windows.Forms.Label();
-            this.btnStartScheduledMaintenance = new System.Windows.Forms.Button();
-            this.btnEndScheduledMaintenance = new System.Windows.Forms.Button();
+            this.btnStartEndScheduledMaintenance = new System.Windows.Forms.Button();
             this.btnEditScheduledMaintenance = new System.Windows.Forms.Button();
             this.gbxScheduledMaintenanceCrud = new System.Windows.Forms.GroupBox();
             this.btnDeleteScheduledMaintenance = new System.Windows.Forms.Button();
@@ -248,26 +247,15 @@
             this.lblElapsedTime.TabIndex = 13;
             this.lblElapsedTime.Text = "<empty>";
             // 
-            // btnStartScheduledMaintenance
+            // btnStartEndScheduledMaintenance
             // 
-            this.btnStartScheduledMaintenance.Location = new System.Drawing.Point(1188, 249);
-            this.btnStartScheduledMaintenance.Name = "btnStartScheduledMaintenance";
-            this.btnStartScheduledMaintenance.Size = new System.Drawing.Size(203, 56);
-            this.btnStartScheduledMaintenance.TabIndex = 7;
-            this.btnStartScheduledMaintenance.Text = "Start Scheduled Maintenance";
-            this.btnStartScheduledMaintenance.UseVisualStyleBackColor = true;
-            this.btnStartScheduledMaintenance.Click += new System.EventHandler(this.BtnStartScheduledMaintenance_Click);
-            // 
-            // btnEndScheduledMaintenance
-            // 
-            this.btnEndScheduledMaintenance.Enabled = false;
-            this.btnEndScheduledMaintenance.Location = new System.Drawing.Point(1397, 249);
-            this.btnEndScheduledMaintenance.Name = "btnEndScheduledMaintenance";
-            this.btnEndScheduledMaintenance.Size = new System.Drawing.Size(213, 56);
-            this.btnEndScheduledMaintenance.TabIndex = 8;
-            this.btnEndScheduledMaintenance.Text = "End Scheduled Maintenance";
-            this.btnEndScheduledMaintenance.UseVisualStyleBackColor = true;
-            this.btnEndScheduledMaintenance.Click += new System.EventHandler(this.BtnEndScheduledMaintenance_Click);
+            this.btnStartEndScheduledMaintenance.Location = new System.Drawing.Point(1284, 249);
+            this.btnStartEndScheduledMaintenance.Name = "btnStartEndScheduledMaintenance";
+            this.btnStartEndScheduledMaintenance.Size = new System.Drawing.Size(203, 56);
+            this.btnStartEndScheduledMaintenance.TabIndex = 7;
+            this.btnStartEndScheduledMaintenance.Text = "Start Scheduled Maintenance";
+            this.btnStartEndScheduledMaintenance.UseVisualStyleBackColor = true;
+            this.btnStartEndScheduledMaintenance.Click += new System.EventHandler(this.BtnStartEndScheduledMaintenance_Click);
             // 
             // btnEditScheduledMaintenance
             // 
@@ -329,8 +317,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1622, 786);
             this.Controls.Add(this.gbxScheduledMaintenanceCrud);
-            this.Controls.Add(this.btnEndScheduledMaintenance);
-            this.Controls.Add(this.btnStartScheduledMaintenance);
+            this.Controls.Add(this.btnStartEndScheduledMaintenance);
             this.Controls.Add(this.gbxScheduledMaintenanceStatus);
             this.Controls.Add(this.gbxCurrentTasks);
             this.Controls.Add(this.gbxAllTasks);
@@ -361,8 +348,7 @@
         private System.Windows.Forms.GroupBox gbxAllTasks;
         private System.Windows.Forms.GroupBox gbxCurrentTasks;
         private System.Windows.Forms.GroupBox gbxScheduledMaintenanceStatus;
-        private System.Windows.Forms.Button btnStartScheduledMaintenance;
-        private System.Windows.Forms.Button btnEndScheduledMaintenance;
+        private System.Windows.Forms.Button btnStartEndScheduledMaintenance;
         private System.Windows.Forms.Label lblLabelElapsedTime;
         private System.Windows.Forms.Label lblElapsedTime;
         private System.Windows.Forms.Button btnEditScheduledMaintenance;
