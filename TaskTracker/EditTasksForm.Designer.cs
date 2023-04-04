@@ -28,41 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tbTaskName = new System.Windows.Forms.TextBox();
+            this.tbDescription = new System.Windows.Forms.TextBox();
             this.gbxTask = new System.Windows.Forms.GroupBox();
             this.btnEditOwnershipGroups = new System.Windows.Forms.Button();
             this.cbOwnershipGroup = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dtpExpectedEndTime = new System.Windows.Forms.DateTimePicker();
+            this.dtpScheduledEndTime = new System.Windows.Forms.DateTimePicker();
             this.lblExpectedEndTime = new System.Windows.Forms.Label();
-            this.dtpExpectedStartTime = new System.Windows.Forms.DateTimePicker();
+            this.dtpScheduledStartTime = new System.Windows.Forms.DateTimePicker();
             this.lblExpectedStartTime = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
             this.btnAddTask = new System.Windows.Forms.Button();
             this.btnRemoveTask = new System.Windows.Forms.Button();
             this.dgvTasks = new System.Windows.Forms.DataGridView();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.gbxTask.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTasks)).BeginInit();
             this.SuspendLayout();
             // 
-            // tbTaskName
+            // tbDescription
             // 
-            this.tbTaskName.Location = new System.Drawing.Point(190, 25);
-            this.tbTaskName.Name = "tbTaskName";
-            this.tbTaskName.Size = new System.Drawing.Size(498, 26);
-            this.tbTaskName.TabIndex = 1;
+            this.tbDescription.Location = new System.Drawing.Point(190, 25);
+            this.tbDescription.Name = "tbDescription";
+            this.tbDescription.Size = new System.Drawing.Size(498, 26);
+            this.tbDescription.TabIndex = 1;
             // 
             // gbxTask
             // 
             this.gbxTask.Controls.Add(this.btnEditOwnershipGroups);
             this.gbxTask.Controls.Add(this.cbOwnershipGroup);
             this.gbxTask.Controls.Add(this.label1);
-            this.gbxTask.Controls.Add(this.dtpExpectedEndTime);
+            this.gbxTask.Controls.Add(this.dtpScheduledEndTime);
             this.gbxTask.Controls.Add(this.lblExpectedEndTime);
-            this.gbxTask.Controls.Add(this.dtpExpectedStartTime);
+            this.gbxTask.Controls.Add(this.dtpScheduledStartTime);
             this.gbxTask.Controls.Add(this.lblExpectedStartTime);
             this.gbxTask.Controls.Add(this.lblDescription);
-            this.gbxTask.Controls.Add(this.tbTaskName);
+            this.gbxTask.Controls.Add(this.tbDescription);
             this.gbxTask.Location = new System.Drawing.Point(12, 352);
             this.gbxTask.Name = "gbxTask";
             this.gbxTask.Size = new System.Drawing.Size(764, 269);
@@ -98,13 +100,13 @@
             this.label1.TabIndex = 19;
             this.label1.Text = "Ownership Group";
             // 
-            // dtpExpectedEndTime
+            // dtpScheduledEndTime
             // 
-            this.dtpExpectedEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpExpectedEndTime.Location = new System.Drawing.Point(190, 137);
-            this.dtpExpectedEndTime.Name = "dtpExpectedEndTime";
-            this.dtpExpectedEndTime.Size = new System.Drawing.Size(119, 26);
-            this.dtpExpectedEndTime.TabIndex = 5;
+            this.dtpScheduledEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpScheduledEndTime.Location = new System.Drawing.Point(190, 137);
+            this.dtpScheduledEndTime.Name = "dtpScheduledEndTime";
+            this.dtpScheduledEndTime.Size = new System.Drawing.Size(119, 26);
+            this.dtpScheduledEndTime.TabIndex = 5;
             // 
             // lblExpectedEndTime
             // 
@@ -115,14 +117,14 @@
             this.lblExpectedEndTime.TabIndex = 17;
             this.lblExpectedEndTime.Text = "End Time:";
             // 
-            // dtpExpectedStartTime
+            // dtpScheduledStartTime
             // 
-            this.dtpExpectedStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpExpectedStartTime.Location = new System.Drawing.Point(190, 106);
-            this.dtpExpectedStartTime.Name = "dtpExpectedStartTime";
-            this.dtpExpectedStartTime.Size = new System.Drawing.Size(119, 26);
-            this.dtpExpectedStartTime.TabIndex = 4;
-            this.dtpExpectedStartTime.ValueChanged += new System.EventHandler(this.DtpExpectedStartTime_ValueChanged);
+            this.dtpScheduledStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpScheduledStartTime.Location = new System.Drawing.Point(190, 106);
+            this.dtpScheduledStartTime.Name = "dtpScheduledStartTime";
+            this.dtpScheduledStartTime.Size = new System.Drawing.Size(119, 26);
+            this.dtpScheduledStartTime.TabIndex = 4;
+            this.dtpScheduledStartTime.ValueChanged += new System.EventHandler(this.DtpExpectedStartTime_ValueChanged);
             // 
             // lblExpectedStartTime
             // 
@@ -144,7 +146,7 @@
             // 
             // btnAddTask
             // 
-            this.btnAddTask.Location = new System.Drawing.Point(782, 147);
+            this.btnAddTask.Location = new System.Drawing.Point(1175, 110);
             this.btnAddTask.Name = "btnAddTask";
             this.btnAddTask.Size = new System.Drawing.Size(97, 32);
             this.btnAddTask.TabIndex = 6;
@@ -154,7 +156,7 @@
             // 
             // btnRemoveTask
             // 
-            this.btnRemoveTask.Location = new System.Drawing.Point(782, 185);
+            this.btnRemoveTask.Location = new System.Drawing.Point(1175, 148);
             this.btnRemoveTask.Name = "btnRemoveTask";
             this.btnRemoveTask.Size = new System.Drawing.Size(97, 32);
             this.btnRemoveTask.TabIndex = 7;
@@ -176,15 +178,38 @@
             this.dgvTasks.Name = "dgvTasks";
             this.dgvTasks.ReadOnly = true;
             this.dgvTasks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTasks.Size = new System.Drawing.Size(764, 334);
+            this.dgvTasks.Size = new System.Drawing.Size(1157, 334);
             this.dgvTasks.StandardTab = true;
             this.dgvTasks.TabIndex = 8;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(1175, 186);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(97, 32);
+            this.btnEdit.TabIndex = 9;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(1175, 224);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(97, 32);
+            this.btnSave.TabIndex = 10;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Visible = false;
+            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // EditTasksForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1232, 661);
+            this.ClientSize = new System.Drawing.Size(1529, 661);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.dgvTasks);
             this.Controls.Add(this.btnRemoveTask);
             this.Controls.Add(this.btnAddTask);
@@ -202,18 +227,20 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox tbTaskName;
+        private System.Windows.Forms.TextBox tbDescription;
         private System.Windows.Forms.GroupBox gbxTask;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Button btnAddTask;
         private System.Windows.Forms.Button btnRemoveTask;
-        private System.Windows.Forms.DateTimePicker dtpExpectedEndTime;
+        private System.Windows.Forms.DateTimePicker dtpScheduledEndTime;
         private System.Windows.Forms.Label lblExpectedEndTime;
-        private System.Windows.Forms.DateTimePicker dtpExpectedStartTime;
+        private System.Windows.Forms.DateTimePicker dtpScheduledStartTime;
         private System.Windows.Forms.Label lblExpectedStartTime;
         private System.Windows.Forms.ComboBox cbOwnershipGroup;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnEditOwnershipGroups;
         private System.Windows.Forms.DataGridView dgvTasks;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnSave;
     }
 }

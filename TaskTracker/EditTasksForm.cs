@@ -33,12 +33,12 @@ namespace TaskTracker
             LoadOwnershipGroupsFromFile();
             cbOwnershipGroup.DataSource = ownershipGroups;
 
-            dtpExpectedStartTime.ShowUpDown = true;
-            dtpExpectedEndTime.ShowUpDown = true;
+            dtpScheduledStartTime.ShowUpDown = true;
+            dtpScheduledEndTime.ShowUpDown = true;
 
-            dtpExpectedStartTime.Value = _mainForm.scheduledMaintenance.ScheduledStartDateTime.Date +
+            dtpScheduledStartTime.Value = _mainForm.scheduledMaintenance.ScheduledStartDateTime.Date +
                 _mainForm.scheduledMaintenance.ScheduledStartDateTime.TimeOfDay;
-            dtpExpectedEndTime.Value = dtpExpectedStartTime.Value;
+            dtpScheduledEndTime.Value = dtpScheduledStartTime.Value;
         }
 
         public void RefreshOwnershipGroupsComboBox()
@@ -69,26 +69,25 @@ namespace TaskTracker
 
         private void FormatDataGridView()
         {
-            dgvTasks.Columns[2].Visible = false;
-            dgvTasks.Columns[5].Visible = false;
-            dgvTasks.Columns[6].Visible = false;
+            dgvTasks.Columns[2].DefaultCellStyle.Format = "h:mm tt";
             dgvTasks.Columns[3].DefaultCellStyle.Format = "h:mm tt";
-            dgvTasks.Columns[4].DefaultCellStyle.Format = "h:mm tt";
             dgvTasks.Columns[1].HeaderText = "Ownership Group";
-            dgvTasks.Columns[3].HeaderText = "Start Time";
-            dgvTasks.Columns[4].HeaderText = "End Time";
+            dgvTasks.Columns[2].HeaderText = "Scheduled Start Time";
+            dgvTasks.Columns[3].HeaderText = "Scheduled End Time";
+            dgvTasks.Columns[4].HeaderText = "Actual Start Time";
+            dgvTasks.Columns[5].HeaderText = "Actual End Time";
         }
 
         private void BtnAddTask_Click(object sender, EventArgs e)
         {
             ScheduledMaintenanceTask task = new ScheduledMaintenanceTask();
-            task.Description = tbTaskName.Text;
+            task.Description = tbDescription.Text;
             task.OwnershipGroup = cbOwnershipGroup.SelectedItem.ToString();
-            task.ScheduledStartDateTime = dtpExpectedStartTime.Value;
-            task.ScheduledEndDateTime = dtpExpectedEndTime.Value;
+            task.ScheduledStartDateTime = dtpScheduledStartTime.Value;
+            task.ScheduledEndDateTime = dtpScheduledEndTime.Value;
             _mainForm.scheduledMaintenance.Tasks.Add(task);
             _mainForm.SaveScheduledMaintenancesToFile();
-            tbTaskName.Text = "";
+            tbDescription.Text = "";
             cbOwnershipGroup.SelectedIndex = 0;
             RefreshDataGridView();
             _mainForm.RefreshDataGridView();
@@ -112,7 +111,38 @@ namespace TaskTracker
 
         private void DtpExpectedStartTime_ValueChanged(object sender, EventArgs e)
         {
-            dtpExpectedEndTime.Value = dtpExpectedStartTime.Value;
+            if (btnSave.Visible == false)
+            {
+                dtpScheduledEndTime.Value = dtpScheduledStartTime.Value;
+            }
+        }
+
+        private void BtnEdit_Click(object sender, EventArgs e)
+        {
+            if (dgvTasks.SelectedRows.Count == 1)
+            {
+                ScheduledMaintenanceTask task = (ScheduledMaintenanceTask)dgvTasks.CurrentRow.DataBoundItem;
+                tbDescription.Text = task.Description;
+                cbOwnershipGroup.SelectedItem = task.OwnershipGroup;
+                dtpScheduledStartTime.Value = task.ScheduledStartDateTime;
+                dtpScheduledEndTime.Value = task.ScheduledEndDateTime;
+
+                btnSave.Visible = true;
+            }
+        }
+
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+            ScheduledMaintenanceTask task = (ScheduledMaintenanceTask)dgvTasks.CurrentRow.DataBoundItem;
+            task.Description = tbDescription.Text;
+            task.OwnershipGroup = cbOwnershipGroup.SelectedItem.ToString();
+            task.ScheduledStartDateTime = dtpScheduledStartTime.Value;
+            task.ScheduledEndDateTime = dtpScheduledEndTime.Value;
+            _mainForm.SaveScheduledMaintenancesToFile();
+            tbDescription.Text = "";
+            cbOwnershipGroup.SelectedIndex = 0;
+            RefreshDataGridView();
+            _mainForm.RefreshDataGridView();
         }
     }
 }

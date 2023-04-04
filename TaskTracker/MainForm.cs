@@ -49,14 +49,13 @@ namespace TaskTracker
 
         private void FormatDataGridView()
         {
-            dgvTasks.Columns[2].Visible = false;
-            dgvTasks.Columns[5].Visible = false;
-            dgvTasks.Columns[6].Visible = false;
+            dgvTasks.Columns[2].DefaultCellStyle.Format = "h:mm tt";
             dgvTasks.Columns[3].DefaultCellStyle.Format = "h:mm tt";
-            dgvTasks.Columns[4].DefaultCellStyle.Format = "h:mm tt";
             dgvTasks.Columns[1].HeaderText = "Ownership Group";
-            dgvTasks.Columns[3].HeaderText = "Start Time";
-            dgvTasks.Columns[4].HeaderText = "End Time";
+            dgvTasks.Columns[2].HeaderText = "Scheduled Start Time";
+            dgvTasks.Columns[3].HeaderText = "Scheduled End Time";
+            dgvTasks.Columns[4].HeaderText = "Actual Start Time";
+            dgvTasks.Columns[5].HeaderText = "Actual End Time";
         }
 
         private void PopulateLabels()

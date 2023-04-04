@@ -175,7 +175,7 @@
             this.gbxAllTasks.Controls.Add(this.btnEditTasks);
             this.gbxAllTasks.Location = new System.Drawing.Point(12, 12);
             this.gbxAllTasks.Name = "gbxAllTasks";
-            this.gbxAllTasks.Size = new System.Drawing.Size(777, 410);
+            this.gbxAllTasks.Size = new System.Drawing.Size(1170, 410);
             this.gbxAllTasks.TabIndex = 12;
             this.gbxAllTasks.TabStop = false;
             this.gbxAllTasks.Text = "All Tasks";
@@ -194,7 +194,7 @@
             this.dgvTasks.Name = "dgvTasks";
             this.dgvTasks.ReadOnly = true;
             this.dgvTasks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTasks.Size = new System.Drawing.Size(764, 334);
+            this.dgvTasks.Size = new System.Drawing.Size(1157, 334);
             this.dgvTasks.StandardTab = true;
             this.dgvTasks.TabIndex = 1;
             // 
@@ -202,7 +202,7 @@
             // 
             this.gbxCurrentTasks.Location = new System.Drawing.Point(12, 428);
             this.gbxCurrentTasks.Name = "gbxCurrentTasks";
-            this.gbxCurrentTasks.Size = new System.Drawing.Size(777, 346);
+            this.gbxCurrentTasks.Size = new System.Drawing.Size(1170, 346);
             this.gbxCurrentTasks.TabIndex = 13;
             this.gbxCurrentTasks.TabStop = false;
             this.gbxCurrentTasks.Text = "Current Tasks";
@@ -221,7 +221,7 @@
             this.gbxScheduledMaintenanceStatus.Controls.Add(this.lblActualStartDateTime);
             this.gbxScheduledMaintenanceStatus.Controls.Add(this.lblScheduledEndDateTime);
             this.gbxScheduledMaintenanceStatus.Controls.Add(this.lblLabelActualStartDateTime);
-            this.gbxScheduledMaintenanceStatus.Location = new System.Drawing.Point(795, 12);
+            this.gbxScheduledMaintenanceStatus.Location = new System.Drawing.Point(1188, 12);
             this.gbxScheduledMaintenanceStatus.Name = "gbxScheduledMaintenanceStatus";
             this.gbxScheduledMaintenanceStatus.Size = new System.Drawing.Size(422, 231);
             this.gbxScheduledMaintenanceStatus.TabIndex = 14;
@@ -250,7 +250,7 @@
             // 
             // btnStartScheduledMaintenance
             // 
-            this.btnStartScheduledMaintenance.Location = new System.Drawing.Point(795, 249);
+            this.btnStartScheduledMaintenance.Location = new System.Drawing.Point(1188, 249);
             this.btnStartScheduledMaintenance.Name = "btnStartScheduledMaintenance";
             this.btnStartScheduledMaintenance.Size = new System.Drawing.Size(203, 56);
             this.btnStartScheduledMaintenance.TabIndex = 7;
@@ -261,7 +261,7 @@
             // btnEndScheduledMaintenance
             // 
             this.btnEndScheduledMaintenance.Enabled = false;
-            this.btnEndScheduledMaintenance.Location = new System.Drawing.Point(1004, 249);
+            this.btnEndScheduledMaintenance.Location = new System.Drawing.Point(1397, 249);
             this.btnEndScheduledMaintenance.Name = "btnEndScheduledMaintenance";
             this.btnEndScheduledMaintenance.Size = new System.Drawing.Size(213, 56);
             this.btnEndScheduledMaintenance.TabIndex = 8;
@@ -285,7 +285,7 @@
             this.gbxScheduledMaintenanceCrud.Controls.Add(this.btnViewPastScheduledMaintenances);
             this.gbxScheduledMaintenanceCrud.Controls.Add(this.btnEditScheduledMaintenance);
             this.gbxScheduledMaintenanceCrud.Controls.Add(this.btnNewScheduledMaintenance);
-            this.gbxScheduledMaintenanceCrud.Location = new System.Drawing.Point(798, 428);
+            this.gbxScheduledMaintenanceCrud.Location = new System.Drawing.Point(1191, 428);
             this.gbxScheduledMaintenanceCrud.Name = "gbxScheduledMaintenanceCrud";
             this.gbxScheduledMaintenanceCrud.Size = new System.Drawing.Size(419, 346);
             this.gbxScheduledMaintenanceCrud.TabIndex = 18;
@@ -327,7 +327,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1229, 786);
+            this.ClientSize = new System.Drawing.Size(1622, 786);
             this.Controls.Add(this.gbxScheduledMaintenanceCrud);
             this.Controls.Add(this.btnEndScheduledMaintenance);
             this.Controls.Add(this.btnStartScheduledMaintenance);

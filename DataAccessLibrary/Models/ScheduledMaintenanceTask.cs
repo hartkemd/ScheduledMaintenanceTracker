@@ -11,10 +11,10 @@ namespace DataAccessLibrary.Models
     {
         public string Description { get; set; }
         public string OwnershipGroup { get; set; }
-        public ScheduledMaintenanceTaskStatus Status { get; set; } = ScheduledMaintenanceTaskStatus.Scheduled;
         public DateTime ScheduledStartDateTime { get; set; }
         public DateTime ScheduledEndDateTime { get; set; }
         public DateTime ActualStartDateTime { get; set; }
         public DateTime ActualEndDateTime { get; set; }
+        public ScheduledMaintenanceTaskStatus Status { get; set; } = ScheduledMaintenanceTaskStatus.Scheduled;
     }
 }
