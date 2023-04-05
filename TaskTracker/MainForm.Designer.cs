@@ -54,8 +54,10 @@
             this.btnDeleteScheduledMaintenance = new System.Windows.Forms.Button();
             this.btnViewPastScheduledMaintenances = new System.Windows.Forms.Button();
             this.btnNewScheduledMaintenance = new System.Windows.Forms.Button();
+            this.tlpCurrentTasks = new System.Windows.Forms.TableLayoutPanel();
             this.gbxAllTasks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTasks)).BeginInit();
+            this.gbxCurrentTasks.SuspendLayout();
             this.gbxScheduledMaintenanceStatus.SuspendLayout();
             this.gbxScheduledMaintenanceCrud.SuspendLayout();
             this.SuspendLayout();
@@ -241,6 +243,7 @@
             // 
             // gbxCurrentTasks
             // 
+            this.gbxCurrentTasks.Controls.Add(this.tlpCurrentTasks);
             this.gbxCurrentTasks.Location = new System.Drawing.Point(12, 428);
             this.gbxCurrentTasks.Name = "gbxCurrentTasks";
             this.gbxCurrentTasks.Size = new System.Drawing.Size(1170, 346);
@@ -353,6 +356,19 @@
             this.btnNewScheduledMaintenance.UseVisualStyleBackColor = true;
             this.btnNewScheduledMaintenance.Click += new System.EventHandler(this.BtnNewScheduledMaintenance_Click);
             // 
+            // tlpCurrentTasks
+            // 
+            this.tlpCurrentTasks.ColumnCount = 2;
+            this.tlpCurrentTasks.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpCurrentTasks.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpCurrentTasks.Location = new System.Drawing.Point(7, 25);
+            this.tlpCurrentTasks.Name = "tlpCurrentTasks";
+            this.tlpCurrentTasks.RowCount = 2;
+            this.tlpCurrentTasks.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpCurrentTasks.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpCurrentTasks.Size = new System.Drawing.Size(1157, 315);
+            this.tlpCurrentTasks.TabIndex = 0;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -370,6 +386,7 @@
             this.Text = "Scheduled Maintenance Tracker";
             this.gbxAllTasks.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTasks)).EndInit();
+            this.gbxCurrentTasks.ResumeLayout(false);
             this.gbxScheduledMaintenanceStatus.ResumeLayout(false);
             this.gbxScheduledMaintenanceStatus.PerformLayout();
             this.gbxScheduledMaintenanceCrud.ResumeLayout(false);
@@ -404,6 +421,7 @@
         private System.Windows.Forms.Button btnStartTask;
         private System.Windows.Forms.Button btnCompleteTask;
         private System.Windows.Forms.Button btnMarkIssue;
+        private System.Windows.Forms.TableLayoutPanel tlpCurrentTasks;
     }
 }
 

@@ -10,6 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace TaskTracker
 {
@@ -43,7 +45,7 @@ namespace TaskTracker
             }
 
             ConditionallyEnableTaskButtons();
-            ConditionallyEnableStartEndScheduledMaintenanceButton();
+            RenderStartEndScheduledMaintenanceButton();
             ConditionallyEnableDeleteButton();
         }
 
@@ -53,24 +55,38 @@ namespace TaskTracker
             {
                 if (scheduledMaintenance.ActualStartDateTime != null)
                 {
-                    btnEditTasks.Enabled = true;
+                    btnEditTasks.Enabled = false;
                     btnStartTask.Enabled = true;
                     btnCompleteTask.Enabled = true;
                     btnMarkIssue.Enabled = true;
                 }
+                else
+                {
+                    btnEditTasks.Enabled = true;
+                    btnStartTask.Enabled = false;
+                    btnCompleteTask.Enabled = false;
+                    btnMarkIssue.Enabled = false;
+                }
             }
         }
 
-        private void ConditionallyEnableStartEndScheduledMaintenanceButton()
+        private void RenderStartEndScheduledMaintenanceButton()
         {
             if (scheduledMaintenance != null)
             {
-                if (scheduledMaintenance.ActualEndDateTime == DateTime.MinValue)
+                if (scheduledMaintenance.ActualStartDateTime == null)
                 {
+                    btnStartEndScheduledMaintenance.Text = "Start Scheduled Maintenance";
                     btnStartEndScheduledMaintenance.Enabled = true;
                 }
-                else
+                else if (scheduledMaintenance.ActualStartDateTime != null && scheduledMaintenance.ActualEndDateTime == null)
                 {
+                    btnStartEndScheduledMaintenance.Text = "End Scheduled Maintenance";
+                    btnStartEndScheduledMaintenance.Enabled = true;
+                }
+                else if (scheduledMaintenance.ActualEndDateTime != null)
+                {
+                    btnStartEndScheduledMaintenance.Text = "End Scheduled Maintenance";
                     btnStartEndScheduledMaintenance.Enabled = false;
                 }
             }
@@ -193,6 +209,7 @@ namespace TaskTracker
                 lblActualStartDateTime.Text = scheduledMaintenance.ActualStartDateTime?.ToString(dateTimeStringFormat);
                 InitializeElapsedTimeTimer();
                 SaveScheduledMaintenancesToFile();
+                ConditionallyEnableTaskButtons();
                 btnStartEndScheduledMaintenance.Text = "End Scheduled Maintenance";
             }
             else if (btnStartEndScheduledMaintenance.Text == "End Scheduled Maintenance")
@@ -201,6 +218,7 @@ namespace TaskTracker
                 lblActualEndDateTime.Text = scheduledMaintenance.ActualEndDateTime?.ToString(dateTimeStringFormat);
                 elapsedTimeTimer.Stop();
                 SaveScheduledMaintenancesToFile();
+                ConditionallyEnableTaskButtons();
                 btnStartEndScheduledMaintenance.Enabled = false;
             }
         }
@@ -225,7 +243,7 @@ namespace TaskTracker
 
             ConditionallyEnableDeleteButton();
             ConditionallyEnableTaskButtons();
-            ConditionallyEnableStartEndScheduledMaintenanceButton();
+            RenderStartEndScheduledMaintenanceButton();
 
             EditScheduledMaintenanceForm editScheduledMaintenanceForm = new EditScheduledMaintenanceForm(this);
             editScheduledMaintenanceForm.ShowDialog();
@@ -246,7 +264,7 @@ namespace TaskTracker
 
                 ConditionallyEnableDeleteButton();
                 ConditionallyEnableTaskButtons();
-                ConditionallyEnableStartEndScheduledMaintenanceButton();
+                RenderStartEndScheduledMaintenanceButton();
 
                 dgvTasks.DataSource = null;
             }
@@ -261,6 +279,18 @@ namespace TaskTracker
                 task.Status = Enums.ScheduledMaintenanceTaskStatus.InProgress;
                 SaveScheduledMaintenancesToFile();
                 RefreshDataGridView();
+
+                var lblDescription = new Label();
+                lblDescription.Text = task.Description;
+                lblDescription.AutoSize = true;
+                lblDescription.TextAlign = ContentAlignment.MiddleLeft;
+                tlpCurrentTasks.Controls.Add(lblDescription);
+                PictureBox pbThrobber = new PictureBox();
+                pbThrobber.Image = System.Drawing.Image.FromFile("../../Images/throbber.gif");
+                tlpCurrentTasks.Controls.Add(pbThrobber);
+                tlpCurrentTasks.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
+                //var progressBar = new System.Windows.Forms.ProgressBar();
+                //progressBar.Style = ProgressBarStyle.Marquee;
             }
         }
 
