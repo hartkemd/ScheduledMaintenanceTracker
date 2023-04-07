@@ -358,15 +358,18 @@
             // 
             // tlpCurrentTasks
             // 
+            this.tlpCurrentTasks.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tlpCurrentTasks.ColumnCount = 2;
             this.tlpCurrentTasks.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpCurrentTasks.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpCurrentTasks.Location = new System.Drawing.Point(7, 25);
+            this.tlpCurrentTasks.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpCurrentTasks.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpCurrentTasks.Location = new System.Drawing.Point(3, 22);
             this.tlpCurrentTasks.Name = "tlpCurrentTasks";
             this.tlpCurrentTasks.RowCount = 2;
-            this.tlpCurrentTasks.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpCurrentTasks.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpCurrentTasks.Size = new System.Drawing.Size(1157, 315);
+            this.tlpCurrentTasks.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpCurrentTasks.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpCurrentTasks.Size = new System.Drawing.Size(1164, 321);
             this.tlpCurrentTasks.TabIndex = 0;
             // 
             // MainForm

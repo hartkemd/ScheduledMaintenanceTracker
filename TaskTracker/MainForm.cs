@@ -283,14 +283,12 @@ namespace TaskTracker
                 var lblDescription = new Label();
                 lblDescription.Text = task.Description;
                 lblDescription.AutoSize = true;
-                lblDescription.TextAlign = ContentAlignment.MiddleLeft;
+                lblDescription.Anchor = AnchorStyles.Right;
                 tlpCurrentTasks.Controls.Add(lblDescription);
-                PictureBox pbThrobber = new PictureBox();
-                pbThrobber.Image = System.Drawing.Image.FromFile("../../Images/throbber.gif");
-                tlpCurrentTasks.Controls.Add(pbThrobber);
-                tlpCurrentTasks.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
-                //var progressBar = new System.Windows.Forms.ProgressBar();
-                //progressBar.Style = ProgressBarStyle.Marquee;
+                var progressBar = new System.Windows.Forms.ProgressBar();
+                progressBar.Style = ProgressBarStyle.Marquee;
+                tlpCurrentTasks.Controls.Add(progressBar);
+                tlpCurrentTasks.RowCount++;
             }
         }
 
