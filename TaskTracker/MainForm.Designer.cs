@@ -39,12 +39,11 @@
             this.lblLabelActualStartDateTime = new System.Windows.Forms.Label();
             this.lblActualEndDateTime = new System.Windows.Forms.Label();
             this.lblLabelActualEndDateTime = new System.Windows.Forms.Label();
-            this.gbxAllTasks = new System.Windows.Forms.GroupBox();
+            this.gbxTasks = new System.Windows.Forms.GroupBox();
             this.btnMarkIssue = new System.Windows.Forms.Button();
             this.btnCompleteTask = new System.Windows.Forms.Button();
             this.btnStartTask = new System.Windows.Forms.Button();
             this.dgvTasks = new System.Windows.Forms.DataGridView();
-            this.gbxCurrentTasks = new System.Windows.Forms.GroupBox();
             this.gbxScheduledMaintenanceStatus = new System.Windows.Forms.GroupBox();
             this.lblLabelElapsedTime = new System.Windows.Forms.Label();
             this.lblElapsedTime = new System.Windows.Forms.Label();
@@ -54,10 +53,8 @@
             this.btnDeleteScheduledMaintenance = new System.Windows.Forms.Button();
             this.btnViewPastScheduledMaintenances = new System.Windows.Forms.Button();
             this.btnNewScheduledMaintenance = new System.Windows.Forms.Button();
-            this.tlpCurrentTasks = new System.Windows.Forms.TableLayoutPanel();
-            this.gbxAllTasks.SuspendLayout();
+            this.gbxTasks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTasks)).BeginInit();
-            this.gbxCurrentTasks.SuspendLayout();
             this.gbxScheduledMaintenanceStatus.SuspendLayout();
             this.gbxScheduledMaintenanceCrud.SuspendLayout();
             this.SuspendLayout();
@@ -74,7 +71,7 @@
             // 
             // btnEditTasks
             // 
-            this.btnEditTasks.Location = new System.Drawing.Point(7, 367);
+            this.btnEditTasks.Location = new System.Drawing.Point(7, 719);
             this.btnEditTasks.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEditTasks.Name = "btnEditTasks";
             this.btnEditTasks.Size = new System.Drawing.Size(112, 35);
@@ -173,24 +170,24 @@
             this.lblLabelActualEndDateTime.TabIndex = 10;
             this.lblLabelActualEndDateTime.Text = "Actual End:";
             // 
-            // gbxAllTasks
+            // gbxTasks
             // 
-            this.gbxAllTasks.Controls.Add(this.btnMarkIssue);
-            this.gbxAllTasks.Controls.Add(this.btnCompleteTask);
-            this.gbxAllTasks.Controls.Add(this.btnStartTask);
-            this.gbxAllTasks.Controls.Add(this.dgvTasks);
-            this.gbxAllTasks.Controls.Add(this.btnEditTasks);
-            this.gbxAllTasks.Location = new System.Drawing.Point(12, 12);
-            this.gbxAllTasks.Name = "gbxAllTasks";
-            this.gbxAllTasks.Size = new System.Drawing.Size(1170, 410);
-            this.gbxAllTasks.TabIndex = 12;
-            this.gbxAllTasks.TabStop = false;
-            this.gbxAllTasks.Text = "All Tasks";
+            this.gbxTasks.Controls.Add(this.btnMarkIssue);
+            this.gbxTasks.Controls.Add(this.btnCompleteTask);
+            this.gbxTasks.Controls.Add(this.btnStartTask);
+            this.gbxTasks.Controls.Add(this.dgvTasks);
+            this.gbxTasks.Controls.Add(this.btnEditTasks);
+            this.gbxTasks.Location = new System.Drawing.Point(12, 12);
+            this.gbxTasks.Name = "gbxTasks";
+            this.gbxTasks.Size = new System.Drawing.Size(1170, 762);
+            this.gbxTasks.TabIndex = 12;
+            this.gbxTasks.TabStop = false;
+            this.gbxTasks.Text = "Tasks";
             // 
             // btnMarkIssue
             // 
             this.btnMarkIssue.Enabled = false;
-            this.btnMarkIssue.Location = new System.Drawing.Point(394, 367);
+            this.btnMarkIssue.Location = new System.Drawing.Point(394, 719);
             this.btnMarkIssue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnMarkIssue.Name = "btnMarkIssue";
             this.btnMarkIssue.Size = new System.Drawing.Size(119, 35);
@@ -202,7 +199,7 @@
             // btnCompleteTask
             // 
             this.btnCompleteTask.Enabled = false;
-            this.btnCompleteTask.Location = new System.Drawing.Point(247, 367);
+            this.btnCompleteTask.Location = new System.Drawing.Point(247, 719);
             this.btnCompleteTask.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCompleteTask.Name = "btnCompleteTask";
             this.btnCompleteTask.Size = new System.Drawing.Size(139, 35);
@@ -214,7 +211,7 @@
             // btnStartTask
             // 
             this.btnStartTask.Enabled = false;
-            this.btnStartTask.Location = new System.Drawing.Point(127, 367);
+            this.btnStartTask.Location = new System.Drawing.Point(127, 719);
             this.btnStartTask.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnStartTask.Name = "btnStartTask";
             this.btnStartTask.Size = new System.Drawing.Size(112, 35);
@@ -237,19 +234,9 @@
             this.dgvTasks.Name = "dgvTasks";
             this.dgvTasks.ReadOnly = true;
             this.dgvTasks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTasks.Size = new System.Drawing.Size(1157, 334);
+            this.dgvTasks.Size = new System.Drawing.Size(1157, 686);
             this.dgvTasks.StandardTab = true;
             this.dgvTasks.TabIndex = 1;
-            // 
-            // gbxCurrentTasks
-            // 
-            this.gbxCurrentTasks.Controls.Add(this.tlpCurrentTasks);
-            this.gbxCurrentTasks.Location = new System.Drawing.Point(12, 428);
-            this.gbxCurrentTasks.Name = "gbxCurrentTasks";
-            this.gbxCurrentTasks.Size = new System.Drawing.Size(1170, 346);
-            this.gbxCurrentTasks.TabIndex = 13;
-            this.gbxCurrentTasks.TabStop = false;
-            this.gbxCurrentTasks.Text = "Current Tasks";
             // 
             // gbxScheduledMaintenanceStatus
             // 
@@ -356,22 +343,6 @@
             this.btnNewScheduledMaintenance.UseVisualStyleBackColor = true;
             this.btnNewScheduledMaintenance.Click += new System.EventHandler(this.BtnNewScheduledMaintenance_Click);
             // 
-            // tlpCurrentTasks
-            // 
-            this.tlpCurrentTasks.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tlpCurrentTasks.ColumnCount = 2;
-            this.tlpCurrentTasks.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpCurrentTasks.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpCurrentTasks.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpCurrentTasks.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpCurrentTasks.Location = new System.Drawing.Point(3, 22);
-            this.tlpCurrentTasks.Name = "tlpCurrentTasks";
-            this.tlpCurrentTasks.RowCount = 2;
-            this.tlpCurrentTasks.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpCurrentTasks.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpCurrentTasks.Size = new System.Drawing.Size(1164, 321);
-            this.tlpCurrentTasks.TabIndex = 0;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -380,16 +351,14 @@
             this.Controls.Add(this.gbxScheduledMaintenanceCrud);
             this.Controls.Add(this.btnStartEndScheduledMaintenance);
             this.Controls.Add(this.gbxScheduledMaintenanceStatus);
-            this.Controls.Add(this.gbxCurrentTasks);
-            this.Controls.Add(this.gbxAllTasks);
+            this.Controls.Add(this.gbxTasks);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MainForm";
             this.Text = "Scheduled Maintenance Tracker";
-            this.gbxAllTasks.ResumeLayout(false);
+            this.gbxTasks.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTasks)).EndInit();
-            this.gbxCurrentTasks.ResumeLayout(false);
             this.gbxScheduledMaintenanceStatus.ResumeLayout(false);
             this.gbxScheduledMaintenanceStatus.PerformLayout();
             this.gbxScheduledMaintenanceCrud.ResumeLayout(false);
@@ -407,8 +376,7 @@
         private System.Windows.Forms.Label lblLabelActualStartDateTime;
         private System.Windows.Forms.Label lblActualEndDateTime;
         private System.Windows.Forms.Label lblLabelActualEndDateTime;
-        private System.Windows.Forms.GroupBox gbxAllTasks;
-        private System.Windows.Forms.GroupBox gbxCurrentTasks;
+        private System.Windows.Forms.GroupBox gbxTasks;
         private System.Windows.Forms.GroupBox gbxScheduledMaintenanceStatus;
         private System.Windows.Forms.Button btnStartEndScheduledMaintenance;
         private System.Windows.Forms.Label lblLabelElapsedTime;
@@ -424,7 +392,6 @@
         private System.Windows.Forms.Button btnStartTask;
         private System.Windows.Forms.Button btnCompleteTask;
         private System.Windows.Forms.Button btnMarkIssue;
-        private System.Windows.Forms.TableLayoutPanel tlpCurrentTasks;
     }
 }
 

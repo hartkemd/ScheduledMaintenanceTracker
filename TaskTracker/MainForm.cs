@@ -49,6 +49,32 @@ namespace TaskTracker
             ConditionallyEnableDeleteButton();
         }
 
+        private void ColorDataGridViewCells()
+        {
+            foreach (DataGridViewRow row in dgvTasks.Rows)
+            {
+                if ((Enums.ScheduledMaintenanceTaskStatus)row.Cells["Status"].Value == Enums.ScheduledMaintenanceTaskStatus.InProgress)
+                {
+                    row.Cells["Status"].Style.BackColor = Color.Blue;
+                }
+                else if ((Enums.ScheduledMaintenanceTaskStatus)row.Cells["Status"].Value == Enums.ScheduledMaintenanceTaskStatus.Complete)
+                {
+                    row.Cells["Status"].Style.BackColor = Color.Green;
+                }
+                else if ((Enums.ScheduledMaintenanceTaskStatus)row.Cells["Status"].Value == Enums.ScheduledMaintenanceTaskStatus.Issue)
+                {
+                    row.Cells["Status"].Style.BackColor = Color.Red;
+                }
+            }
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            ColorDataGridViewCells();
+
+            base.OnLoad(e);
+        }
+
         private void ConditionallyEnableTaskButtons()
         {
             if (scheduledMaintenance != null)
@@ -109,6 +135,8 @@ namespace TaskTracker
             dgvTasks.DataSource = null;
             dgvTasks.DataSource = scheduledMaintenance.Tasks;
             SharedMethods.FormatDataGridView(dgvTasks);
+
+            ColorDataGridViewCells();
         }
 
         private void PopulateScheduledMaintenanceStatusLabels()
@@ -279,16 +307,6 @@ namespace TaskTracker
                 task.Status = Enums.ScheduledMaintenanceTaskStatus.InProgress;
                 SaveScheduledMaintenancesToFile();
                 RefreshDataGridView();
-
-                var lblDescription = new Label();
-                lblDescription.Text = task.Description;
-                lblDescription.AutoSize = true;
-                lblDescription.Anchor = AnchorStyles.Right;
-                tlpCurrentTasks.Controls.Add(lblDescription);
-                var progressBar = new System.Windows.Forms.ProgressBar();
-                progressBar.Style = ProgressBarStyle.Marquee;
-                tlpCurrentTasks.Controls.Add(progressBar);
-                tlpCurrentTasks.RowCount++;
             }
         }
 
