@@ -344,6 +344,15 @@ namespace TaskTracker
                 ScheduledMaintenanceTask task = (ScheduledMaintenanceTask)dgvTasks.CurrentRow.DataBoundItem;
                 task.ActualEndDateTime = DateTime.Now;
                 task.Status = Enums.ScheduledMaintenanceTaskStatus.Issue;
+
+                using (InputBoxForm inputBoxForm = new InputBoxForm())
+                {
+                    if (inputBoxForm.ShowDialog() == DialogResult.OK)
+                    {
+                        task.Notes = inputBoxForm.tbIssueDescription.Text;
+                    }
+                }
+
                 SaveScheduledMaintenancesToFile();
                 RefreshDataGridView();
             }

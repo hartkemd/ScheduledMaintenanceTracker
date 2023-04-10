@@ -64,6 +64,12 @@
     <Compile Include="EditTasksForm.Designer.cs">
       <DependentUpon>EditTasksForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="InputBoxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputBoxForm.Designer.cs">
+      <DependentUpon>InputBoxForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditTasksForm.resx">
       <DependentUpon>EditTasksForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputBoxForm.resx">
+      <DependentUpon>InputBoxForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

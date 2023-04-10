@@ -16,5 +16,6 @@ namespace DataAccessLibrary.Models
         public DateTime? ActualStartDateTime { get; set; } = null;
         public DateTime? ActualEndDateTime { get; set; } = null;
         public ScheduledMaintenanceTaskStatus Status { get; set; } = ScheduledMaintenanceTaskStatus.Scheduled;
+        public string Notes { get; set; }
     }
 }
