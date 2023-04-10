@@ -50,6 +50,13 @@ namespace TaskTracker
             ConditionallyEnableDeleteButton();
         }
 
+        protected override void OnLoad(EventArgs e)
+        {
+            ColorDataGridViewCells();
+
+            base.OnLoad(e);
+        }
+
         private void ConditionallyStartElapsedTimeTimer()
         {
             if ((scheduledMaintenance.ActualStartDateTime != null) && (scheduledMaintenance.ActualEndDateTime == null))
@@ -83,23 +90,23 @@ namespace TaskTracker
             }
         }
 
-        protected override void OnLoad(EventArgs e)
-        {
-            ColorDataGridViewCells();
-
-            base.OnLoad(e);
-        }
-
         private void ConditionallyEnableTaskButtons()
         {
             if (scheduledMaintenance != null)
             {
-                if (scheduledMaintenance.ActualStartDateTime != null)
+                if ((scheduledMaintenance.ActualStartDateTime != null) && (scheduledMaintenance.ActualEndDateTime == null))
                 {
                     btnEditTasks.Enabled = false;
                     btnStartTask.Enabled = true;
                     btnCompleteTask.Enabled = true;
                     btnMarkIssue.Enabled = true;
+                }
+                else if ((scheduledMaintenance.ActualStartDateTime != null) && (scheduledMaintenance.ActualEndDateTime != null))
+                {
+                    btnEditTasks.Enabled = false;
+                    btnStartTask.Enabled = false;
+                    btnCompleteTask.Enabled = false;
+                    btnMarkIssue.Enabled = false;
                 }
                 else
                 {
@@ -120,7 +127,7 @@ namespace TaskTracker
                     btnStartEndScheduledMaintenance.Text = "Start Scheduled Maintenance";
                     btnStartEndScheduledMaintenance.Enabled = true;
                 }
-                else if (scheduledMaintenance.ActualStartDateTime != null && scheduledMaintenance.ActualEndDateTime == null)
+                else if ((scheduledMaintenance.ActualStartDateTime != null) && scheduledMaintenance.ActualEndDateTime == null)
                 {
                     btnStartEndScheduledMaintenance.Text = "End Scheduled Maintenance";
                     btnStartEndScheduledMaintenance.Enabled = true;

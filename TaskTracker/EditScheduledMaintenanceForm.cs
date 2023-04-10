@@ -31,11 +31,14 @@ namespace TaskTracker
             dtpExpectedEndTime.Format = DateTimePickerFormat.Custom;
             dtpExpectedEndTime.ShowUpDown = true;
             dtpExpectedEndTime.Value = DateTime.Now.Date.AddHours(4);
-
-            FormClosing += EditScheduledMaintenanceForm_FormClosing;
         }
 
-        private void EditScheduledMaintenanceForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void DtpExpectedStartDate_ValueChanged(object sender, EventArgs e)
+        {
+            dtpExpectedEndDate.Value = dtpExpectedStartDate.Value;
+        }
+
+        private void btnOK_Click(object sender, EventArgs e)
         {
             _mainForm.scheduledMaintenance.ScheduledStartDateTime = dtpExpectedStartDate.Value.Date +
                 dtpExpectedStartTime.Value.TimeOfDay;
@@ -47,11 +50,8 @@ namespace TaskTracker
                 _mainForm.scheduledMaintenance.ScheduledEndDateTime?.ToString(dateTimeStringFormat);
 
             _mainForm.SaveScheduledMaintenancesToFile();
-        }
 
-        private void DtpExpectedStartDate_ValueChanged(object sender, EventArgs e)
-        {
-            dtpExpectedEndDate.Value = dtpExpectedStartDate.Value;
+            this.Close();
         }
     }
 }

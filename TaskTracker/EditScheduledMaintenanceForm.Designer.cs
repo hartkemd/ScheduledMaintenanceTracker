@@ -37,6 +37,7 @@
             this.dtpExpectedEndDate = new System.Windows.Forms.DateTimePicker();
             this.lblExpectedEndDate = new System.Windows.Forms.Label();
             this.gbxScheduledStartAndEnd = new System.Windows.Forms.GroupBox();
+            this.btnOK = new System.Windows.Forms.Button();
             this.gbxScheduledStartAndEnd.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -126,11 +127,22 @@
             this.gbxScheduledStartAndEnd.TabStop = false;
             this.gbxScheduledStartAndEnd.Text = "Scheduled Start and End";
             // 
+            // btnOK
+            // 
+            this.btnOK.Location = new System.Drawing.Point(385, 233);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(75, 37);
+            this.btnOK.TabIndex = 10;
+            this.btnOK.Text = "OK";
+            this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            // 
             // EditScheduledMaintenanceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1461, 621);
+            this.ClientSize = new System.Drawing.Size(849, 295);
+            this.Controls.Add(this.btnOK);
             this.Controls.Add(this.gbxScheduledStartAndEnd);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -154,5 +166,6 @@
         private System.Windows.Forms.DateTimePicker dtpExpectedEndDate;
         private System.Windows.Forms.Label lblExpectedEndDate;
         private System.Windows.Forms.GroupBox gbxScheduledStartAndEnd;
+        private System.Windows.Forms.Button btnOK;
     }
 }

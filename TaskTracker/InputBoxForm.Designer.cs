@@ -44,9 +44,9 @@
             // 
             // tbIssueDescription
             // 
-            this.tbIssueDescription.Location = new System.Drawing.Point(12, 32);
+            this.tbIssueDescription.Location = new System.Drawing.Point(16, 32);
             this.tbIssueDescription.Name = "tbIssueDescription";
-            this.tbIssueDescription.Size = new System.Drawing.Size(628, 26);
+            this.tbIssueDescription.Size = new System.Drawing.Size(624, 26);
             this.tbIssueDescription.TabIndex = 1;
             // 
             // btnOK
