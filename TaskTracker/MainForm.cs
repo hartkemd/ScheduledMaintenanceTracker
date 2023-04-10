@@ -41,12 +41,27 @@ namespace TaskTracker
             if (scheduledMaintenance != null)
             {
                 PopulateScheduledMaintenanceStatusLabels();
+                ConditionallyStartElapsedTimeTimer();
                 RefreshDataGridView();
             }
 
             ConditionallyEnableTaskButtons();
             RenderStartEndScheduledMaintenanceButton();
             ConditionallyEnableDeleteButton();
+        }
+
+        private void ConditionallyStartElapsedTimeTimer()
+        {
+            if ((scheduledMaintenance.ActualStartDateTime != null) && (scheduledMaintenance.ActualEndDateTime == null))
+            {
+                elapsedTime = DateTime.Now - (DateTime)scheduledMaintenance.ActualStartDateTime;
+                InitializeElapsedTimeTimer();
+            }
+            else if ((scheduledMaintenance.ActualStartDateTime != null) && (scheduledMaintenance.ActualEndDateTime != null))
+            {
+                elapsedTime = (DateTime)scheduledMaintenance.ActualEndDateTime - (DateTime)scheduledMaintenance.ActualStartDateTime;
+                lblElapsedTime.Text = elapsedTime.ToString(@"hh\:mm\:ss");
+            }
         }
 
         private void ColorDataGridViewCells()

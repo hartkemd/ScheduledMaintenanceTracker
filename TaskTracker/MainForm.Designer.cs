@@ -51,7 +51,7 @@
             this.btnEditScheduledMaintenance = new System.Windows.Forms.Button();
             this.gbxScheduledMaintenanceCrud = new System.Windows.Forms.GroupBox();
             this.btnDeleteScheduledMaintenance = new System.Windows.Forms.Button();
-            this.btnViewPastScheduledMaintenances = new System.Windows.Forms.Button();
+            this.btnViewAllScheduledMaintenances = new System.Windows.Forms.Button();
             this.btnNewScheduledMaintenance = new System.Windows.Forms.Button();
             this.gbxTasks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTasks)).BeginInit();
@@ -254,7 +254,7 @@
             this.gbxScheduledMaintenanceStatus.Controls.Add(this.lblLabelActualStartDateTime);
             this.gbxScheduledMaintenanceStatus.Location = new System.Drawing.Point(1188, 12);
             this.gbxScheduledMaintenanceStatus.Name = "gbxScheduledMaintenanceStatus";
-            this.gbxScheduledMaintenanceStatus.Size = new System.Drawing.Size(422, 231);
+            this.gbxScheduledMaintenanceStatus.Size = new System.Drawing.Size(429, 231);
             this.gbxScheduledMaintenanceStatus.TabIndex = 14;
             this.gbxScheduledMaintenanceStatus.TabStop = false;
             this.gbxScheduledMaintenanceStatus.Text = "Scheduled Maintenance Status";
@@ -281,7 +281,7 @@
             // 
             // btnStartEndScheduledMaintenance
             // 
-            this.btnStartEndScheduledMaintenance.Location = new System.Drawing.Point(1284, 249);
+            this.btnStartEndScheduledMaintenance.Location = new System.Drawing.Point(1293, 249);
             this.btnStartEndScheduledMaintenance.Name = "btnStartEndScheduledMaintenance";
             this.btnStartEndScheduledMaintenance.Size = new System.Drawing.Size(203, 56);
             this.btnStartEndScheduledMaintenance.TabIndex = 7;
@@ -302,15 +302,14 @@
             // gbxScheduledMaintenanceCrud
             // 
             this.gbxScheduledMaintenanceCrud.Controls.Add(this.btnDeleteScheduledMaintenance);
-            this.gbxScheduledMaintenanceCrud.Controls.Add(this.btnViewPastScheduledMaintenances);
+            this.gbxScheduledMaintenanceCrud.Controls.Add(this.btnViewAllScheduledMaintenances);
             this.gbxScheduledMaintenanceCrud.Controls.Add(this.btnEditScheduledMaintenance);
             this.gbxScheduledMaintenanceCrud.Controls.Add(this.btnNewScheduledMaintenance);
             this.gbxScheduledMaintenanceCrud.Location = new System.Drawing.Point(1191, 428);
             this.gbxScheduledMaintenanceCrud.Name = "gbxScheduledMaintenanceCrud";
-            this.gbxScheduledMaintenanceCrud.Size = new System.Drawing.Size(419, 346);
+            this.gbxScheduledMaintenanceCrud.Size = new System.Drawing.Size(426, 346);
             this.gbxScheduledMaintenanceCrud.TabIndex = 18;
             this.gbxScheduledMaintenanceCrud.TabStop = false;
-            this.gbxScheduledMaintenanceCrud.Text = "CRUD Operations";
             // 
             // btnDeleteScheduledMaintenance
             // 
@@ -323,15 +322,15 @@
             this.btnDeleteScheduledMaintenance.UseVisualStyleBackColor = true;
             this.btnDeleteScheduledMaintenance.Click += new System.EventHandler(this.BtnDeleteScheduledMaintenance_Click);
             // 
-            // btnViewPastScheduledMaintenances
+            // btnViewAllScheduledMaintenances
             // 
-            this.btnViewPastScheduledMaintenances.Location = new System.Drawing.Point(216, 25);
-            this.btnViewPastScheduledMaintenances.Name = "btnViewPastScheduledMaintenances";
-            this.btnViewPastScheduledMaintenances.Size = new System.Drawing.Size(203, 56);
-            this.btnViewPastScheduledMaintenances.TabIndex = 4;
-            this.btnViewPastScheduledMaintenances.Text = "View Past Scheduled Maintenances";
-            this.btnViewPastScheduledMaintenances.UseVisualStyleBackColor = true;
-            this.btnViewPastScheduledMaintenances.Click += new System.EventHandler(this.BtnViewAllScheduledMaintenances_Click);
+            this.btnViewAllScheduledMaintenances.Location = new System.Drawing.Point(216, 25);
+            this.btnViewAllScheduledMaintenances.Name = "btnViewAllScheduledMaintenances";
+            this.btnViewAllScheduledMaintenances.Size = new System.Drawing.Size(203, 56);
+            this.btnViewAllScheduledMaintenances.TabIndex = 4;
+            this.btnViewAllScheduledMaintenances.Text = "View All Scheduled Maintenances";
+            this.btnViewAllScheduledMaintenances.UseVisualStyleBackColor = true;
+            this.btnViewAllScheduledMaintenances.Click += new System.EventHandler(this.BtnViewAllScheduledMaintenances_Click);
             // 
             // btnNewScheduledMaintenance
             // 
@@ -347,7 +346,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1622, 786);
+            this.ClientSize = new System.Drawing.Size(1632, 786);
             this.Controls.Add(this.gbxScheduledMaintenanceCrud);
             this.Controls.Add(this.btnStartEndScheduledMaintenance);
             this.Controls.Add(this.gbxScheduledMaintenanceStatus);
@@ -385,7 +384,7 @@
         public System.Windows.Forms.Label lblScheduledStartDateTime;
         public System.Windows.Forms.Label lblScheduledEndDateTime;
         private System.Windows.Forms.GroupBox gbxScheduledMaintenanceCrud;
-        private System.Windows.Forms.Button btnViewPastScheduledMaintenances;
+        private System.Windows.Forms.Button btnViewAllScheduledMaintenances;
         private System.Windows.Forms.Button btnNewScheduledMaintenance;
         private System.Windows.Forms.Button btnDeleteScheduledMaintenance;
         private System.Windows.Forms.DataGridView dgvTasks;
